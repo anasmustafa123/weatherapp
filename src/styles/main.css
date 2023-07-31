@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --text-color: white;
+    --comment-text-color: rgba(155, 154, 154, 0.715);
+    --background-color: rgba(179, 173, 173, 0.268);
+}
+html{
+    font-size: 100%;
+}
+
+section{
+    background: no-repeat center center fixed;
+    background-image: url('../assets/night.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    padding: 5rem 4rem;
+    color: var(--text-color);
+    position: relative;
+}
+
+section input{
+    margin-top: 2rem;
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translate(-50%, -50%);
+}
+/* part 1 */
+.parts-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1.searched-country{
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+    line-height: 1;
+}
+
+p.date{
+    margin-left: 0.5rem;
+}
+.temprature-container{
+    display: flex;
+    font-size: 4rem;
+    margin: 1rem 0;
+}
+.part1 .heading{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.part1 p{
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--comment-text-color);
+}
+.change-display{
+    margin-top: 1rem;
+}
+
+/* part 2 */
+
+.button-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.c#selected{
+    background-color: var(--background-color);
+}
+.c, .f{
+    border: 0.1px solid var(--background-color);
+    border-radius: 20%;
+    padding: 0.35rem;
+}
+
+.state-container{
+    display: flex;
+    margin: 3.5rem 0;
+    gap: 1rem;
+}
+.state-name{
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+.state-value{
+    font-size: 105%;
+    margin-left: 0.5rem;
+}
+.part2 i{
+    font-size: 2.5rem;
+}
