@@ -14,21 +14,31 @@ class weatherToday {
     get temp_c(){
         return `${this.resp.current.temp_c} °C`;
     }
-    get time_f(){
+    get temp_f(){
         return `${this.resp.current.temp_f} °F`;
     }
     get condition(){
         return `${this.resp.current.condition.text}`;
     }
     get temp_feelLike_c(){
-        return `${this.resp.current.feelslike_c} °C`;
+        return `feels like  ${this.resp.current.feelslike_c} °C`;
     }
     get temp_feelLike_f(){
-        return `${this.resp.current.feelslike_f} °F`;
+        return `feelsl like ${this.resp.current.feelslike_f} °F`;
     }
     get iconUrl(){
         return `${this.resp.current.condition.icon}`;
     }
+    get wspeed_kph(){
+        return `${this.resp.current.wind_kph} kph`
+    }
+    get wspeed_mph(){
+        return `${this.resp.current.wind_kph} mph`
+    }
+    get humidity(){
+        return `${this.resp.current.humidity} %`;
+    }
+
 }
 
 export { weatherToday };
