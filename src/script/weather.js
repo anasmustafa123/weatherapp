@@ -38,7 +38,9 @@ class weatherToday {
     get humidity(){
         return `${this.resp.current.humidity} %`;
     }
-
+    get rain(){
+        return `${this.resp.forecast.forecastday[0].hour[0].chance_of_rain} %`;
+    }
 }
 
 export { weatherToday };

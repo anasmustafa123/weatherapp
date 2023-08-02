@@ -51,6 +51,9 @@ class Change {
     set windspeed(wspeed){
         document.getElementById('wind-speed').textContent = wspeed;
     }
+    set rain(chanse_of_rain){
+        document.getElementById('rain').textContent = chanse_of_rain;
+    }
 
 }
 
