@@ -12,6 +12,12 @@ search.addEventListener("change", () => {
   searchThenFetch(query);
   loading();
 });
+document.querySelector("i.search").addEventListener("click", () => {
+  let query = search.value;
+  console.log(query);
+  searchThenFetch(query);
+  loading();
+});
 
 /* search the input query and select the first in result searched array */
 const searchThenFetch = (query) => {

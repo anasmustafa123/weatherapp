@@ -27,14 +27,45 @@ section{
     color: var(--text-color);
     position: relative;
 }
-
-section input{
-    margin-top: 2rem;
-    position: absolute;
-    left: 50%;
-    top: 2rem;
-    transform: translate(-50%, -50%);
+/* input */
+.input-container{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms ease;
+    overflow-x: hidden;
 }
+.input-container i {
+    position: absolute;
+    color: black;
+    font-size: 2rem;
+    left: 0.5rem;
+}
+.input-container.active{
+    width: 20rem;
+    border-radius: 1rem;
+}
+.input-container.active .input-data-container{
+    left: 3rem;
+}
+.input-data-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 4rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: 2rem;
+}
+input#search {
+    font-size: 1.15rem;
+}
+
 /* part 1 */
 .parts-container{
     display: flex;
@@ -45,6 +76,7 @@ h1.searched-country{
     font-size: 2.5rem;
     margin-bottom: .5rem;
     line-height: 1;
+    max-width: 26rem;
 }
 
 p.date{
@@ -53,7 +85,48 @@ p.date{
 .temprature-container{
     display: flex;
     font-size: 4rem;
-    margin: 1rem 0;
+    margin: 1rem 0 1rem -2rem;
+    gap: 2rem;
+}
+div#temp {
+    display: inline-flex;
+}
+img#temp-icon {
+    width: 6rem;
+    object-fit: contain;
+}
+img.loading {
+    object-fit: contain;
+}
+img.loading.country-fullname{
+    width: 120px;
+}
+img.loading.time{
+    width: 50px;
+}
+img.loading.date{
+    width: 50px;
+}
+img.loading.temp{
+    width: 90px;
+}
+img.loading.condition{
+    width: 50px;
+}
+img.loading.feel-like{
+    width: 50px;
+}
+img.loading.feel-like{
+    width: 50px;
+}
+img.loading.humidity{
+    width: 30px;
+}
+img.loading.wind-speed{
+    width: 30px;
+}
+img.loading.rain{
+    width: 30px;
 }
 .part1 .heading{
     font-weight: 600;
@@ -78,13 +151,14 @@ p.date{
     justify-content: space-around;
 }
 
-.c#selected{
+.btn.selected{
     background-color: var(--background-color);
 }
-.c, .f{
+.btn{
     border: 0.1px solid var(--background-color);
     border-radius: 20%;
     padding: 0.35rem;
+    cursor: pointer;
 }
 
 .state-container{
@@ -102,4 +176,8 @@ p.date{
 }
 .part2 i{
     font-size: 2.5rem;
+}
+
+.state-value{
+    display: inline-flex;
 }
