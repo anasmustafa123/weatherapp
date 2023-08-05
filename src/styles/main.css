@@ -9,18 +9,40 @@
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
 }
-:root{
+html{
     --text-color: white;
     --comment-text-color: rgba(155, 154, 154, 0.715);
     --background-color: rgba(179, 173, 173, 0.268);
-}
-html{
+    --transparent-bg-color: rgba(0, 0, 0, 0.125);
     font-size: 100%;
 }
-
+html.clear{
+    --text-color: white;
+    --comment-text-color: rgba(155, 154, 154, 0.715);
+    --background-color: rgba(179, 173, 173, 0.268);
+    --transparent-bg-color: rgba(0, 0, 0, 0.125);
+}
+html.cloudy, html.partlycloudy{
+    --text-color: black;
+    --comment-text-color: rgb(0 0 0 / 53%);
+    --background-color: #ffffff96;
+    --transparent-bg-color: rgba(255, 255, 255, 0.153);
+}
+html.sunny{
+    --text-color: black;
+    --comment-text-color: rgb(0 0 0 / 56%);
+    --background-color: rgb(255 255 255 / 65%);
+    --transparent-bg-color: rgba(255, 255, 255, 0.153);
+}
+html.rain{
+    --text-color: white;
+    --background-color: rgb(129 129 129 / 70%);
+    --comment-text-color: rgb(0 0 0 / 55%);
+    --transparent-bg-color: rgba(0, 0, 0, 0.125);
+}
 section{
     background: no-repeat center center fixed;
-    background-image: url('../assets/night.jpg');
+    background-image: url('../assets/cloudy.jpg');
     background-size: cover;
     min-height: 100vh;
     padding: 5rem 4rem;
@@ -31,33 +53,28 @@ section{
 .input-container{
     position: relative;
     height: 50px;
-    width: 50px;
+    width: 20rem;
     background-color: white;
-    border-radius: 50%;
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 200ms ease;
+    transition: all 200ms ease-in-out;
     overflow-x: hidden;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .input-container i {
     position: absolute;
     color: black;
-    font-size: 2rem;
+    font-size: 1.5rem;
     left: 0.5rem;
-}
-.input-container.active{
-    width: 20rem;
-    border-radius: 1rem;
-}
-.input-container.active .input-data-container{
-    left: 3rem;
 }
 .input-data-container{
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 4rem;
+    left: 3rem;
     display: inline-flex;
     align-items: center;
     font-size: 2rem;
@@ -87,6 +104,10 @@ p.date{
     font-size: 4rem;
     margin: 1rem 0 1rem -2rem;
     gap: 2rem;
+    border: 0.2px solid #00000030;
+    padding: 0.7rem;
+    background: #ffffff3d;
+    border-radius: 1rem;
 }
 div#temp {
     display: inline-flex;
@@ -138,6 +159,13 @@ img.loading.rain{
     font-weight: 600;
     letter-spacing: 0.5px;
     color: var(--comment-text-color);
+    border: 0.2px solid #00000030;
+    padding: 0.2rem 0.5rem;
+    background: #ffffff3d;
+    border-radius: 1rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 .change-display{
     margin-top: 1rem;
@@ -163,15 +191,21 @@ img.loading.rain{
 
 .state-container{
     display: flex;
-    margin: 3.5rem 0;
+    margin: 1.5rem 0;
     gap: 1rem;
+    border: 0.2px solid #00000030;
+    padding: 0.7rem;
+    background: #ffffff3d;
+    border-radius: 1rem;
+
 }
 .state-name{
     font-weight: 600;
     margin-bottom: 0.3rem;
 }
 .state-value{
-    font-size: 105%;
+    font-weight: 600;
+    font-size: 1.3rem;
     margin-left: 0.5rem;
 }
 .part2 i{
