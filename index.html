@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather?</title>
+    <script src="./index.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<script defer src="bundle.9f886fbdbfc4c7b902c3.js"></script></head>
+<body>
+    <section class="main-container">
+        <input type="search" name="" id="searchplace">
+        <div class="parts-container">
+            <div class="part1">
+                <h1 class="searched-country">Alexandria, egypt</h1>
+                <p class="date" id="date">Monday, 31st Jul '23</p>
+                <p class="date" id="time">2:50 pm</p>
+                <div class="temprature-container">
+                    <img src="/src/assets/cloudy.jpg" alt="" class="today-weather-img" id="temp-icon">
+                    <div id="temp" class="tempreture">15 °C</div>
+                </div>
+                <div id="condition" class="heading">Clear sky</div>
+                <p id="feel_like">Feels like 26°C</p>
+                <p>Gentle breeze</p>
+            </div>
+            <div class="part2">
+                <div class="button-container">
+                    <div class="btn selected" id="c" id="selected">°C, m/s</div>
+                    <div class="btn" id="f">°F, mph</div>
+                </div>
+                <div class="state-container">
+                    <i class='bx bxs-droplet' ></i>
+                    <div class="state-text-container">
+                        <div class="state-name">Humidity</div>
+                        <div id="humidity" class="state-value">61 %</div>
+                    </div>
+                </div>
+                <div class="state-container">
+                    <i class='bx bx-wind' ></i>
+                    <div class="state-text-container">
+                        <div class="state-name">Wind Speed</div>
+                        <div id="wind-speed" class="state-value">19.7 km/h</div>
+                    </div>
+                </div>
+                <div class="state-container">
+                    <i class='bx bx-cloud-rain'></i>
+                    <div class="state-text-container">
+                        <div class="state-name">Chance of Rain</div>
+                        <div class="state-value">0 %</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
