@@ -4,7 +4,7 @@
   "description": "my first project fetching from an api",
   "main": "index.js",
   "scripts": {
-    "buid": "webpack",
+    "build": "webpack",
     "dev": "webpack serve --open",
     "deploy": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages" 
   },

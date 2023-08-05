@@ -12,9 +12,10 @@ const fixedQuery = (query) => {
         /* taking the first result as the name */
         let fixedQuery = resp[0].name;
         resolve(fixedQuery);
-      }).catch(function (err) {
-        console.log(err)
-        resolve('nowhere');
+      })
+      .catch(function (err) {
+        console.log(err);
+        resolve("nowhere");
       });
   });
 };

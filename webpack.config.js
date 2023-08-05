@@ -1,7 +1,8 @@
-'use strict'
+"use strict";
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   mode: "development",
@@ -33,28 +34,28 @@ module.exports = {
         test: /\.(css)$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: "style-loader",
           },
           {
-            loader: 'css-loader'
+            loader: "css-loader",
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: () => [
-                  autoprefixer
-                ]
-              }
-            }
+                plugins: () => [autoprefixer],
+              },
+            },
           },
-        ]
+        ],
       },
       {
         test: /\.(svg|jpeg|jpg|png|gif)$/i,
         type: "asset/resource",
-      }]},
-  
+      },
+    ],
+  },
+
   /* array of plugins */
   plugins: [
     /* html plugin to create the in the src instead of the dist*/
@@ -63,6 +64,6 @@ module.exports = {
       filename: "index.html",
       template: "src/template.html",
     }),
-    new BundleAnalyzerPlugin(), 
+    new BundleAnalyzerPlugin(),
   ],
 };
