@@ -16,14 +16,18 @@ import {
 /* search a query */
 const search = document.getElementById("search");
 search.addEventListener("change", () => {
-  let query = search.value;
-  searchThenFetch(query);
-  loading();
+  if(search.value.replaceAll(" ","") != ""){
+    let query = search.value;
+    searchThenFetch(query);
+    loading();
+  }
 });
 document.querySelector("i.search").addEventListener("click", () => {
-  let query = search.value;
-  searchThenFetch(query);
-  loading();
+  if(search.value.replaceAll(" ","") != ""){  
+    let query = search.value;
+    searchThenFetch(query);
+    loading();
+  }
 });
 
 /* search the input query and select the first in result searched array */
