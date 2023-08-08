@@ -73,8 +73,8 @@ const changeWeatherMeasure = (key, changeDom) => {
   else if (key == "c") changeToC(changeDom);
 };
 const getWeatherStatusNumber = (weatherData) => {
-  if (weatherData.humidity__ >= 90) return "rain";
-  if (weatherData.cloud__ <= 25) {
+  if (weatherData.humidity__ >= 90 && weatherData.rain > 50) return "rain";
+  if (weatherData.cloud__ < 25) {
     if (weatherData.hour__ >= 6 && weatherData.hour__ <= 18) {
       return "sunny";
     } else {
