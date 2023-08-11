@@ -13,7 +13,7 @@ html{
     --text-color: white;
     --comment-text-color: rgba(155, 154, 154, 0.715);
     --background-color: rgba(179, 173, 173, 0.268);
-    --transparent-bg-color: rgba(0, 0, 0, 0.125);
+    --transparent-bg-color: rgba(0, 0, 0, 0.298);
     font-size: 100%;
 }
 html.clear{
@@ -49,6 +49,11 @@ section{
     color: var(--text-color);
     position: relative;
 }
+section.main-container {
+    display: grid;
+}
+
+
 /* input */
 .input-container{
     position: relative;
@@ -84,6 +89,9 @@ input#search {
 }
 
 /* part 1 */
+.part1 {
+    max-width: 26rem;
+}
 .parts-container{
     display: flex;
     justify-content: space-between;
@@ -148,6 +156,9 @@ img.loading.wind-speed{
 }
 img.loading.rain{
     width: 30px;
+}
+img.loading{
+    width: 50%
 }
 .part1 .heading{
     font-weight: 600;
@@ -216,6 +227,39 @@ img.loading.rain{
     display: inline-flex;
 }
 
+.forecast {
+    border: 0.1px solid black;
+    display: inline-flex;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    background: #ffffff3d;
+}
+.forecast-data-container {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
+.forecast-data {
+    padding: 1rem;
+    border-radius: 2rem;
+    background: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    max-height: 13rem;
+}
+.day-minmax-weather {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+img.day-weather-icon {
+    width: 6rem;
+    object-fit: contain;
+}
+
+/* footer */
 footer {
     position: absolute;
     bottom: 0;
@@ -226,7 +270,9 @@ footer {
     width: 100%;
     gap: 1rem;
     font-size: 120%;
-    color: var(--background-color);
+    color: var(--text-color);
+    background: var(--transparent-bg-color);
+    font-weight: 600;
 }
 footer svg {
     width: 2.1rem;

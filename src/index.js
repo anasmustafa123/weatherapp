@@ -37,7 +37,7 @@ const searchThenFetch = (query) => {
 
 function fetchThenLoad(fixedQuery) {
   fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=e28ec3b945254a078d871023232807&q=${fixedQuery}&days=3`,
+    `http://api.weatherapi.com/v1/forecast.json?key=e28ec3b945254a078d871023232807&q=${fixedQuery}&days=5`,
     { mode: "cors" }
   )
     .then(function (resp) {
@@ -47,7 +47,7 @@ function fetchThenLoad(fixedQuery) {
       console.log(resp);
       const today = new weatherToday(resp);
       const changeDom = new Change();
-      console.log(today.hour__);
+      console.log(today.hour);
       console.log(getWeatherStatusNumber(today));
       let state = getWeatherStatusNumber(today);
       changeBackground(state);
@@ -78,13 +78,13 @@ const changeWeatherMeasure = (key, changeDom) => {
 };
 const getWeatherStatusNumber = (weatherData) => {
   if (weatherData.humidity__ >= 90 && weatherData.rain > 50) return "rain";
-  if (weatherData.cloud__ < 25) {
-    if (weatherData.hour__ >= 6 && weatherData.hour__ <= 18) {
+  if (weatherData.cloud < 25) {
+    if (weatherData.hour >= 6 && weatherData.hour <= 18) {
       return "sunny";
     } else {
       return "clear";
     }
-  } else if (weatherData.cloud__ <= 75) {
+  } else if (weatherData.cloud <= 75) {
     return "partlycloudy";
   } else return "cloudy";
 };
@@ -92,4 +92,4 @@ const getWeatherStatusNumber = (weatherData) => {
 
 /* search for alexandria egypt as start */
 loading();
-searchThenFetch('paris');
+/* searchThenFetch('paris'); */

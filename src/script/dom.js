@@ -49,8 +49,26 @@ const changeToC = (changeDom) => {
     1.609
   ).toFixed(1)} km/h`;
 };
+
+const setForeCastData =  (days, today, measureType) => {
+  let i = 1;
+  days.forEach(day => {
+      day.querySelector('.day-name').textContent = today.getForecastDayName(i);
+      day.querySelector('.day-weather-icon').src = today.getForecastWeatherIcon(i);
+      if(measureType == 'c'){
+          day.querySelector('.day-avg-weather').textContent = today.getForecastAvgTemp_c(i);
+          day.querySelector('.day-min-weather').textContent = today.getForecastMinTemp_c(i);
+          day.querySelector('.day-max-weather').textContent = today.getForecastMaxTemp_c(i);
+      }else{
+          day.querySelector('.day-avg-weather').textContent = today.getForecastAvgTemp_f(i);
+          day.querySelector('.day-min-weather').textContent = today.getForecastMinTemp_f(i);
+          day.querySelector('.day-max-weather').textContent = today.getForecastMaxTemp_f(i);
+      }
+      i += 1;
+  });
+}
+
 const appendValuesToDom = (changeDom, today, measureType) => {
-  console.log(clear__);
   changeDom.fullName = today.fullName;
   changeDom.date = today.date;
   changeDom.time = today.time;
@@ -69,7 +87,10 @@ const appendValuesToDom = (changeDom, today, measureType) => {
   changeDom.humidity = today.humidity;
   changeDom.rain = today.rain;
   document.getElementById("temp-icon").src = today.iconUrl;
+  let days = document.querySelectorAll('.forecast-data');
+  setForeCastData(days, today, measureType);
 };
+
 
 const newImg = (url, classList) => {
   let img = document.createElement("img");
@@ -84,13 +105,23 @@ const appendLoodingIcons = (id, imgurl, classlist) => {
   clear(document.getElementById(id));
   document.getElementById(id).append(newImg(imgurl, classlist));
 };
-
+const appendToAllLoodingIcons = (className, imgurl, classlist) => {
+  let objects = document.querySelectorAll(className).forEach(object => {
+    clear(object);
+    object.append(newImg(imgurl, classlist));
+  })
+  
+  
+};
 const loading = () => {
   document.getElementById("temp-icon").src = loading_img;
   appendLoodingIcons("country-fullname", loading_text, [
     "loading",
     "country-fullname",
   ]);
+  document.querySelectorAll('.day-weather-icon').forEach(day => {
+    day.src = loading_img;
+  })
   appendLoodingIcons("temp", loading_text, ["loading", "temp"]);
   appendLoodingIcons("date", loading_text, ["loading", "date"]);
   appendLoodingIcons("time", loading_text, ["loading", "time"]);
@@ -99,6 +130,10 @@ const loading = () => {
   appendLoodingIcons("humidity", loading_text, ["loading", "humidity"]);
   appendLoodingIcons("wind-speed", loading_text, ["loading", "wind-speed"]);
   appendLoodingIcons("rain", loading_text, ["loading", "rain"]);
+  appendToAllLoodingIcons('.day-name', loading_text, ["loading", "day-name"]);
+  appendToAllLoodingIcons('.day-avg-weather', loading_text, ["loading", "day-name"]);
+  appendToAllLoodingIcons('.day-min-weather', loading_text, ["loading", "day-name"]);
+  appendToAllLoodingIcons('.day-max-weather', loading_text, ["loading", "day-name"]);
 };
 const changeBackground = (state) => {
   switch (state) {

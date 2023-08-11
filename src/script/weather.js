@@ -1,5 +1,6 @@
 class weatherToday {
-  constructor(resp) {
+  constructor(resp) { 
+    this.resp = resp;
     this.name__ = resp.location.name;
     this.country__ = resp.location.country;
     this.date__ = resp.location.localtime.split(" ")[0];
@@ -14,9 +15,10 @@ class weatherToday {
     this.wspeed_kph__ = resp.current.wind_kph;
     this.wspeed_mph__ = resp.current.wind_mph;
     this.humidity__ = resp.current.humidity;
-    this.rain__ = resp.forecast.forecastday[0].hour[0].chance_of_rain;
+    this.rain__ = resp.forecast.forecastday[0].day.daily_chance_of_rain;
     this.cloud__ = resp.current.cloud; 
   }
+  
   get fullName() {
     return `${this.name__}, ${this.country__}`;
   }
@@ -55,6 +57,44 @@ class weatherToday {
   }
   get rain() {
     return `${this.rain__} %`;
+  }
+  get cloud() {
+    return `${this.cloud__}`;
+  }
+  get hour(){
+    return this.time__.split(":")[0]; 
+  }
+  get dayName(){
+    
+  }
+  getForecastDate(dayNum){
+    return this.resp.forecast.forecastday[dayNum].date;
+  }
+  getForecastDayName(dayNum){
+    let date = this.getForecastDate(dayNum);
+    let newDate = new Date(date);
+    return newDate.toLocaleDateString('en-us', {weekday: 'long'});
+  }
+  getForecastAvgTemp_c(dayNum){
+    return this.resp.forecast.forecastday[dayNum].day.avgtemp_c;
+  }
+  getForecastAvgTemp_f(dayNum){
+    return this.resp.forecast.forecastday[dayNum].day.avgtemp_f;
+  }
+  getForecastMaxTemp_c(dayNum){
+    return this.resp.forecast.forecastday[dayNum].day.maxtemp_c;
+  }
+  getForecastMaxTemp_f(dayNum){
+    return this.resp.forecast.forecastday[dayNum].day.maxtemp_f;
+  }
+  getForecastMinTemp_c(dayNum){
+    return this.resp.forecast.forecastday[dayNum].day.mintemp_c;
+  }
+  getForecastMinTemp_f(dayNum){
+    return this.resp.forecast.forecastday[dayNum].day.mintemp_f;
+  }
+  getForecastWeatherIcon(dayNum){
+    return this.resp.forecast.forecastday[dayNum].day.condition.icon;  
   }
 }
 

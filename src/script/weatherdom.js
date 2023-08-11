@@ -17,7 +17,6 @@ class Change {
         document.getElementById('date').textContent = newdate;
     }
     set time(time){
-        console.log(time);
         let hours = Number(time.split(':')[0]);
         let mainutes = time.split(':')[1];
         let part = 'pm';
@@ -54,7 +53,6 @@ class Change {
     set rain(chanse_of_rain){
         document.getElementById('rain').textContent = chanse_of_rain;
     }
-
 }
 
 export { Change };
