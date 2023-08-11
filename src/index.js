@@ -67,11 +67,6 @@ function fetchThenLoad(fixedQuery) {
       });
     });
 }
-/* const changeWeatherMeasure = (key, changeDom, todayData) => {
-  if (key == "f") changeToF(changeDom, todayData);
-  else if (key == "c") changeToC(changeDom, todayData);
-}; */
-
 const changeWeatherMeasure = (key, changeDom) => {
   if (key == "f") changeToF(changeDom);
   else if (key == "c") changeToC(changeDom);
@@ -79,17 +74,21 @@ const changeWeatherMeasure = (key, changeDom) => {
 const getWeatherStatusNumber = (weatherData) => {
   if (weatherData.humidity__ >= 90 && weatherData.rain > 50) return "rain";
   if (weatherData.cloud < 25) {
-    if (weatherData.hour >= 6 && weatherData.hour <= 18) {
+    if (weatherData.hour >= 6 && weatherData.hour <= 20) {
       return "sunny";
     } else {
       return "clear";
     }
   } else if (weatherData.cloud <= 75) {
-    return "partlycloudy";
+    if (weatherData.hour >= 6 && weatherData.hour <= 20) {
+      return "partlycloudy";
+    }else{
+      return "night_cloudy";
+    }
   } else return "cloudy";
 };
 
 
 /* search for alexandria egypt as start */
 loading();
-/* searchThenFetch('paris'); */
+searchThenFetch('paris');

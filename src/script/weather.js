@@ -76,22 +76,22 @@ class weatherToday {
     return newDate.toLocaleDateString('en-us', {weekday: 'long'});
   }
   getForecastAvgTemp_c(dayNum){
-    return this.resp.forecast.forecastday[dayNum].day.avgtemp_c;
+    return `${this.resp.forecast.forecastday[dayNum].day.avgtemp_c} °C`;
   }
   getForecastAvgTemp_f(dayNum){
-    return this.resp.forecast.forecastday[dayNum].day.avgtemp_f;
+    return `${this.resp.forecast.forecastday[dayNum].day.avgtemp_f} °F`;
   }
   getForecastMaxTemp_c(dayNum){
-    return this.resp.forecast.forecastday[dayNum].day.maxtemp_c;
+    return `${this.resp.forecast.forecastday[dayNum].day.maxtemp_c} °C`;
   }
   getForecastMaxTemp_f(dayNum){
-    return this.resp.forecast.forecastday[dayNum].day.maxtemp_f;
+    return `${this.resp.forecast.forecastday[dayNum].day.maxtemp_f} °F`;
   }
   getForecastMinTemp_c(dayNum){
-    return this.resp.forecast.forecastday[dayNum].day.mintemp_c;
+    return `${this.resp.forecast.forecastday[dayNum].day.mintemp_c} °F`;
   }
   getForecastMinTemp_f(dayNum){
-    return this.resp.forecast.forecastday[dayNum].day.mintemp_f;
+    return `${this.resp.forecast.forecastday[dayNum].day.mintemp_f} °F`;
   }
   getForecastWeatherIcon(dayNum){
     return this.resp.forecast.forecastday[dayNum].day.condition.icon;  

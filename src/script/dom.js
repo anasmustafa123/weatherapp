@@ -4,6 +4,7 @@ import clear__ from "../assets/clear.jpg";
 import sunny__ from "../assets/sunny.jpg";
 import cloudy__ from "../assets/cloudy.jpg";
 import rain__ from "../assets/rain.jpg";
+import night_cloudy__ from "../assets/night_cloudy.jpg";
 import partlycloudy__ from "../assets/partlycloudy.jpg";
 const changeToF = (changeDom) => {
   changeDom.temp = `${(
@@ -26,6 +27,27 @@ const changeToF = (changeDom) => {
     Number(document.getElementById("wind-speed").textContent.split(" ")[0]) /
     1.609
   ).toFixed(1)} mi/h`;
+  let i = 1;/* counter for forecast days */
+  document.querySelectorAll(".forecast-data").forEach((day) => {
+    let avgweather = day.querySelector(".day-avg-weather");
+    let minweather = day.querySelector(".day-min-weather");
+    let maxweather = day.querySelector(".day-max-weather");
+    avgweather.textContent = `${(
+      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
+      32
+    ).toFixed(1)} °F`;
+
+    minweather.textContent = `${(
+      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
+      32
+    ).toFixed(1)} °F`;
+
+    maxweather.textContent = `${(
+      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
+      32
+    ).toFixed(1)} °F`;
+    i += 1;
+  });
 };
 const changeToC = (changeDom) => {
   changeDom.temp = `${(
@@ -48,25 +70,53 @@ const changeToC = (changeDom) => {
     Number(document.getElementById("wind-speed").textContent.split(" ")[0]) *
     1.609
   ).toFixed(1)} km/h`;
+  let i = 1;/* counter for forecast days */
+  document.querySelectorAll(".forecast-data").forEach((day) => {
+    let avgweather = day.querySelector(".day-avg-weather");
+    let minweather = day.querySelector(".day-min-weather");
+    let maxweather = day.querySelector(".day-max-weather");
+    avgweather.textContent = `${(
+      ((Number(avgweather.textContent.split(" ")[0]) - 32) * 5) /
+      9
+    ).toFixed(1)} °C`;
+
+    minweather.textContent = `${(
+      ((Number(minweather.textContent.split(" ")[0]) - 32) * 5) /
+      9
+    ).toFixed(1)} °C`;
+
+    maxweather.textContent = `${(
+      ((Number(maxweather.textContent.split(" ")[0]) - 32) * 5) /
+      9
+    ).toFixed(1)} °C`;
+    i += 1;
+  });
 };
 
-const setForeCastData =  (days, today, measureType) => {
+const setForeCastData = (days, today, measureType) => {
   let i = 1;
-  days.forEach(day => {
-      day.querySelector('.day-name').textContent = today.getForecastDayName(i);
-      day.querySelector('.day-weather-icon').src = today.getForecastWeatherIcon(i);
-      if(measureType == 'c'){
-          day.querySelector('.day-avg-weather').textContent = today.getForecastAvgTemp_c(i);
-          day.querySelector('.day-min-weather').textContent = today.getForecastMinTemp_c(i);
-          day.querySelector('.day-max-weather').textContent = today.getForecastMaxTemp_c(i);
-      }else{
-          day.querySelector('.day-avg-weather').textContent = today.getForecastAvgTemp_f(i);
-          day.querySelector('.day-min-weather').textContent = today.getForecastMinTemp_f(i);
-          day.querySelector('.day-max-weather').textContent = today.getForecastMaxTemp_f(i);
-      }
-      i += 1;
+  days.forEach((day) => {
+    day.querySelector(".day-name").textContent = today.getForecastDayName(i);
+    day.querySelector(".day-weather-icon").src =
+      today.getForecastWeatherIcon(i);
+    if (measureType == "c") {
+      day.querySelector(".day-avg-weather").textContent =
+        today.getForecastAvgTemp_c(i);
+      day.querySelector(".day-min-weather").textContent =
+        today.getForecastMinTemp_c(i);
+      day.querySelector(".day-max-weather").textContent =
+        today.getForecastMaxTemp_c(i);
+    } else {
+      day.querySelector(".day-avg-weather").textContent =
+        today.getForecastAvgTemp_f(i);
+      day.querySelector(".day-min-weather").textContent =
+        today.getForecastMinTemp_f(i);
+      day.querySelector(".day-max-weather").textContent =
+        today.getForecastMaxTemp_f(i);
+    }
+    i += 1;
   });
-}
+};
 
 const appendValuesToDom = (changeDom, today, measureType) => {
   changeDom.fullName = today.fullName;
@@ -87,10 +137,9 @@ const appendValuesToDom = (changeDom, today, measureType) => {
   changeDom.humidity = today.humidity;
   changeDom.rain = today.rain;
   document.getElementById("temp-icon").src = today.iconUrl;
-  let days = document.querySelectorAll('.forecast-data');
+  let days = document.querySelectorAll(".forecast-data");
   setForeCastData(days, today, measureType);
 };
-
 
 const newImg = (url, classList) => {
   let img = document.createElement("img");
@@ -106,12 +155,10 @@ const appendLoodingIcons = (id, imgurl, classlist) => {
   document.getElementById(id).append(newImg(imgurl, classlist));
 };
 const appendToAllLoodingIcons = (className, imgurl, classlist) => {
-  let objects = document.querySelectorAll(className).forEach(object => {
+  let objects = document.querySelectorAll(className).forEach((object) => {
     clear(object);
     object.append(newImg(imgurl, classlist));
-  })
-  
-  
+  });
 };
 const loading = () => {
   document.getElementById("temp-icon").src = loading_img;
@@ -119,9 +166,9 @@ const loading = () => {
     "loading",
     "country-fullname",
   ]);
-  document.querySelectorAll('.day-weather-icon').forEach(day => {
+  document.querySelectorAll(".day-weather-icon").forEach((day) => {
     day.src = loading_img;
-  })
+  });
   appendLoodingIcons("temp", loading_text, ["loading", "temp"]);
   appendLoodingIcons("date", loading_text, ["loading", "date"]);
   appendLoodingIcons("time", loading_text, ["loading", "time"]);
@@ -130,12 +177,23 @@ const loading = () => {
   appendLoodingIcons("humidity", loading_text, ["loading", "humidity"]);
   appendLoodingIcons("wind-speed", loading_text, ["loading", "wind-speed"]);
   appendLoodingIcons("rain", loading_text, ["loading", "rain"]);
-  appendToAllLoodingIcons('.day-name', loading_text, ["loading", "day-name"]);
-  appendToAllLoodingIcons('.day-avg-weather', loading_text, ["loading", "day-name"]);
-  appendToAllLoodingIcons('.day-min-weather', loading_text, ["loading", "day-name"]);
-  appendToAllLoodingIcons('.day-max-weather', loading_text, ["loading", "day-name"]);
+  appendToAllLoodingIcons(".day-name", loading_text, ["loading", "day-name"]);
+  appendToAllLoodingIcons(".day-avg-weather", loading_text, [
+    "loading",
+    "avg-weather",
+  ]);
+  appendToAllLoodingIcons(".day-min-weather", loading_text, [
+    "loading",
+    "min-weather",
+  ]);
+  appendToAllLoodingIcons(".day-max-weather", loading_text, [
+    "loading",
+    "max-weather",
+  ]);
 };
 const changeBackground = (state) => {
+  console.log(state);
+  console.log('again');
   switch (state) {
     case "sunny":
       document.querySelector("section.main-container").style[
@@ -162,6 +220,11 @@ const changeBackground = (state) => {
         "background-image"
       ] = `url(${rain__})`;
       break;
+    case "night_cloudy":
+      document.querySelector("section.main-container").style[
+        "background-image"
+      ] = `url(${night_cloudy__})`;
+      break;      
   }
 };
 const changeStyleColor = (state) => {
@@ -182,6 +245,8 @@ const changeStyleColor = (state) => {
     case "rain":
       html.className = "rain";
       break;
+    case "night_cloudy":
+      html.className = "night_cloudy";
   }
 };
 
