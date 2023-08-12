@@ -1,5 +1,7 @@
-<img  src="tablet.png" alt="" width = "400">
-<img  src="phone.png" alt="" width = "400">
+<div style="display: flex; justify-content: space-around; align-items: center;">
+    <img style="height: fit-content; width: 57%; border-radius: 2rem;" src="/src/assets/tablet.png" alt="">
+    <img style="height: fit-content; width: 34%; border-radius: 2rem;" src="/src/assets/phone.png" alt="">
+</div>
 # weatherapp
 my first project fetching from an api
 
