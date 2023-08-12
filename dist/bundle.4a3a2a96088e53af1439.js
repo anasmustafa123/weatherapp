@@ -1438,6 +1438,16 @@ module.exports = __webpack_require__.p + "cloudy.jpg";
 
 /***/ }),
 
+/***/ "./src/assets/favicon.png":
+/*!********************************!*\
+  !*** ./src/assets/favicon.png ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "favicon.png";
+
+/***/ }),
+
 /***/ "./src/assets/loading_img.gif":
 /*!************************************!*\
   !*** ./src/assets/loading_img.gif ***!
@@ -1646,7 +1656,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script_weather__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./script/weather */ "./src/script/weather.js");
 /* harmony import */ var _script_fixedQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./script/fixedQuery */ "./src/script/fixedQuery.js");
 /* harmony import */ var _script_weatherdom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./script/weatherdom */ "./src/script/weatherdom.js");
-/* harmony import */ var _script_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./script/dom */ "./src/script/dom.js");
+/* harmony import */ var _assets_favicon_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/favicon.png */ "./src/assets/favicon.png");
+/* harmony import */ var _script_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./script/dom */ "./src/script/dom.js");
+
 
 
 
@@ -1661,14 +1673,14 @@ search.addEventListener("change", () => {
   if(search.value.replaceAll(" ","") != ""){
     let query = search.value;
     searchThenFetch(query);
-    (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.loading)();
+    (0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.loading)();
   }
 });
 document.querySelector("i.search").addEventListener("click", () => {
   if(search.value.replaceAll(" ","") != ""){  
     let query = search.value;
     searchThenFetch(query);
-    (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.loading)();
+    (0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.loading)();
   }
 });
 
@@ -1689,11 +1701,11 @@ function fetchThenLoad(fixedQuery) {
       const today = new _script_weather__WEBPACK_IMPORTED_MODULE_1__.weatherToday(resp);
       const changeDom = new _script_weatherdom__WEBPACK_IMPORTED_MODULE_3__.Change();
       let state = getWeatherStatusNumber(today);
-      (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeBackground)(state);
-      (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeStyleColor)(state);
+      (0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.changeBackground)(state);
+      (0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.changeStyleColor)(state);
       /* append weather data */
       let measureType = document.querySelector(".btn.selected").id;
-      (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.appendValuesToDom)(changeDom, today, measureType);
+      (0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.appendValuesToDom)(changeDom, today, measureType);
       document.querySelectorAll(".btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           if (!btn.classList.contains("selected")) {
@@ -1709,8 +1721,8 @@ function fetchThenLoad(fixedQuery) {
     })
 }
 const changeWeatherMeasure = (key, changeDom) => {
-  if (key == "f") (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeToF)(changeDom);
-  else if (key == "c") (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeToC)(changeDom);
+  if (key == "f") (0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.changeToF)(changeDom);
+  else if (key == "c") (0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.changeToC)(changeDom);
 };
 const getWeatherStatusNumber = (weatherData) => {
   if (weatherData.humidity__ >= 90 && weatherData.rain > 50) return "rain";
@@ -1731,10 +1743,10 @@ const getWeatherStatusNumber = (weatherData) => {
 
 
 /* search for alexandria egypt as start */
-(0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.loading)();
+(0,_script_dom__WEBPACK_IMPORTED_MODULE_5__.loading)();
 searchThenFetch('paris');
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.a5739926de34f0808aad.js.map
+//# sourceMappingURL=bundle.4a3a2a96088e53af1439.js.map
