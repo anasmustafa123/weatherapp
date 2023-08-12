@@ -120,12 +120,14 @@ p.date{
 .temprature-container{
     display: flex;
     font-size: 4rem;
-    margin: 1rem 0 1rem -2rem;
+    margin: 1rem 0;
     gap: 2rem;
     border: 0.2px solid #00000030;
     padding: 0.7rem;
     background: #ffffff3d;
     border-radius: 1rem;
+    max-width: 24rem;
+    width: fit-content;
 }
 div#temp {
     display: inline-flex;
@@ -322,7 +324,7 @@ footer svg:hover {
         height: 36px;
         width: 17rem;
         left: 100%;
-        top: 1.5rem;
+        top: 0.7rem;
         transform: translate(-19rem);
     }
 }
@@ -346,7 +348,10 @@ footer svg:hover {
     }
     .input-container {
         height: 34px;
-        width: 15rem;
+        width: 17rem;
+    }
+    section{
+        padding: 4rem 3rem;
     }
 }
 @media (max-width: 610px){
@@ -360,20 +365,18 @@ footer svg:hover {
         margin-top: 4rem;
     }
     .temprature-container {
-        display: flex;
-        font-size: 4rem;
-        margin: 1rem 0 1rem -2rem;
         gap: 1rem;
         padding: 0.1rem;
-        background: #ffffff3d;
-        border-radius: 1rem;
     }
     .input-container {
         height: 30px;
         width: 24rem;
         left: 50%;
-        top: 1.5rem;
+        top: 0.7rem;
         transform: translate(-50%);
+    }
+    section{
+        padding: 4rem 2rem;
     }
 }
 @media (max-width: 520px){
@@ -382,6 +385,9 @@ footer svg:hover {
     }
     .input-container {
         width: 20rem;
+    }
+    section{
+        padding: 4rem 1rem;
     }
 } 
 @media (max-width: 475px){
@@ -393,9 +399,13 @@ footer svg:hover {
     html{
         font-size: 60%;
     }
+    .input-container {
+        height: 25px;
+        width: 17rem;
+    }
 } 
 @media (max-width: 370px){
     html{
-        font-size: 55%;
+        font-size: 50%;
     }
 } 
