@@ -1210,7 +1210,7 @@ __webpack_require__.r(__webpack_exports__);
 const fixedQuery = (query) => {
   return new Promise(function (resolve, reject) {
     fetch(
-      `http://api.weatherapi.com/v1/search.json?key=e28ec3b945254a078d871023232807&q=${query}`,
+      `https://api.weatherapi.com/v1/search.json?key=e28ec3b945254a078d871023232807&q=${query}`,
       { mode: "cors" }
     )
       .then(function (resp) {
@@ -1679,7 +1679,7 @@ const searchThenFetch = (query) => {
 
 function fetchThenLoad(fixedQuery) {
   fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=e28ec3b945254a078d871023232807&q=${fixedQuery}&days=5`,
+    `https://api.weatherapi.com/v1/forecast.json?key=e28ec3b945254a078d871023232807&q=${fixedQuery}&days=5`,
     { mode: "cors" }
   )
     .then(function (resp) {
@@ -1737,4 +1737,4 @@ searchThenFetch('paris');
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.55d35d7353b859ab482d.js.map
+//# sourceMappingURL=bundle.a5739926de34f0808aad.js.map
