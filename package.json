@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "my first project fetching from an api",
   "main": "index.js",
+  "repository": {
+    "url": "git+https://github.com/anasmustafa123/weatherapp.git"
+  },
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --open",
-    "deploy": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages" 
+    "deploy": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
