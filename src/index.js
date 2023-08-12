@@ -44,11 +44,8 @@ function fetchThenLoad(fixedQuery) {
       return resp.json();
     })
     .then(function (resp) {
-      console.log(resp);
       const today = new weatherToday(resp);
       const changeDom = new Change();
-      console.log(today.hour);
-      console.log(getWeatherStatusNumber(today));
       let state = getWeatherStatusNumber(today);
       changeBackground(state);
       changeStyleColor(state);
@@ -65,7 +62,9 @@ function fetchThenLoad(fixedQuery) {
           }
         });
       });
-    });
+    }).catch(function (err){
+      console.log(err);
+    })
 }
 const changeWeatherMeasure = (key, changeDom) => {
   if (key == "f") changeToF(changeDom);

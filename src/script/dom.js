@@ -192,8 +192,6 @@ const loading = () => {
   ]);
 };
 const changeBackground = (state) => {
-  console.log(state);
-  console.log('again');
   switch (state) {
     case "sunny":
       document.querySelector("section.main-container").style[
