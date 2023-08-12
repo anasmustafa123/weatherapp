@@ -2,7 +2,7 @@
 const fixedQuery = (query) => {
   return new Promise(function (resolve, reject) {
     fetch(
-      `http://api.weatherapi.com/v1/search.json?key=e28ec3b945254a078d871023232807&q=${query}`,
+      `https://api.weatherapi.com/v1/search.json?key=e28ec3b945254a078d871023232807&q=${query}`,
       { mode: "cors" }
     )
       .then(function (resp) {

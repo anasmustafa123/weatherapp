@@ -37,7 +37,7 @@ const searchThenFetch = (query) => {
 
 function fetchThenLoad(fixedQuery) {
   fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=e28ec3b945254a078d871023232807&q=${fixedQuery}&days=5`,
+    `https://api.weatherapi.com/v1/forecast.json?key=e28ec3b945254a078d871023232807&q=${fixedQuery}&days=5`,
     { mode: "cors" }
   )
     .then(function (resp) {
