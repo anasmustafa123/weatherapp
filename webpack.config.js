@@ -3,6 +3,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+/* used to copy data from file to dist */
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -52,6 +54,10 @@ module.exports = {
       {
         test: /\.(svg|jpeg|jpg|png|gif)$/i,
         type: "asset/resource",
+        /* bundle the imgs in dist/assets */
+        generator: {
+          filename: "assets/[name][ext]",
+        },
       },
     ],
   },
@@ -65,5 +71,9 @@ module.exports = {
       template: "src/template.html",
     }),
     new BundleAnalyzerPlugin(),
+    /* copy all assets from src/assets to dist/assets */
+    new CopyWebpackPlugin({
+      patterns: [{ from: "src/assets", to: "assets" }],
+    }),
   ],
 };

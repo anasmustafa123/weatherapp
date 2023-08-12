@@ -2,7 +2,6 @@ import { main } from "./styles/main.css";
 import { weatherToday } from "./script/weather";
 import { fixedQuery } from "./script/fixedQuery";
 import { Change } from "./script/weatherdom";
-import favicon from "./assets/favicon.png"
 import {
   loading,
   appendValuesToDom,
