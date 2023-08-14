@@ -1196,6 +1196,36 @@ const changeStyleColor = (state) => {
 
 /***/ }),
 
+/***/ "./src/script/fetchCoordinates.js":
+/*!****************************************!*\
+  !*** ./src/script/fetchCoordinates.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fetchCoordinates: () => (/* binding */ fetchCoordinates)
+/* harmony export */ });
+const fetchCoordinates = () => {
+  return new Promise((resolve, reject) => {
+    if ("geolocation" in navigator) {
+      const id = navigator.geolocation.watchPosition((position) => {
+        console.log(position.coords.latitude);
+        resolve({
+          lat: parseFloat(position.coords.latitude),
+          long: parseFloat(position.coords.longitude),
+        });
+      });
+    }
+  }).catch(function (err){
+    console.error(err);
+  })
+};
+
+
+
+/***/ }),
+
 /***/ "./src/script/fixedQuery.js":
 /*!**********************************!*\
   !*** ./src/script/fixedQuery.js ***!
@@ -1228,6 +1258,36 @@ const fixedQuery = (query) => {
   });
 };
 
+
+
+/***/ }),
+
+/***/ "./src/script/reverseGeocoding.js":
+/*!****************************************!*\
+  !*** ./src/script/reverseGeocoding.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   reverseGeodecoding: () => (/* binding */ reverseGeodecoding)
+/* harmony export */ });
+const reverseGeodecoding = (data) => {
+  return new Promise((resolve, reject) => {
+      fetch(
+        `https://us1.locationiq.com/v1/reverse?key=pk.9d9a611ab7e2ec79c9136d0e1f37c5a7&lat=${data.lat}&lon=${data.long}&format=json`,
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((json) => {console.log(json); resolve(json.address.state)});
+    }).catch(function (err){
+        console.log(err);
+    })
+};
 
 
 /***/ }),
@@ -1647,6 +1707,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _script_fixedQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./script/fixedQuery */ "./src/script/fixedQuery.js");
 /* harmony import */ var _script_weatherdom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./script/weatherdom */ "./src/script/weatherdom.js");
 /* harmony import */ var _script_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./script/dom */ "./src/script/dom.js");
+/* harmony import */ var _script_fetchCoordinates__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./script/fetchCoordinates */ "./src/script/fetchCoordinates.js");
+/* harmony import */ var _script_reverseGeocoding__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./script/reverseGeocoding */ "./src/script/reverseGeocoding.js");
 
 
 
@@ -1658,14 +1720,14 @@ __webpack_require__.r(__webpack_exports__);
 /* search a query */
 const search = document.getElementById("search");
 search.addEventListener("change", () => {
-  if(search.value.replaceAll(" ","") != ""){
+  if (search.value.replaceAll(" ", "") != "") {
     let query = search.value;
     searchThenFetch(query);
     (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.loading)();
   }
 });
 document.querySelector("i.search").addEventListener("click", () => {
-  if(search.value.replaceAll(" ","") != ""){  
+  if (search.value.replaceAll(" ", "") != "") {
     let query = search.value;
     searchThenFetch(query);
     (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.loading)();
@@ -1704,9 +1766,10 @@ function fetchThenLoad(fixedQuery) {
           }
         });
       });
-    }).catch(function (err){
-      console.log(err);
     })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 const changeWeatherMeasure = (key, changeDom) => {
   if (key == "f") (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeToF)(changeDom);
@@ -1723,18 +1786,16 @@ const getWeatherStatusNumber = (weatherData) => {
   } else if (weatherData.cloud <= 75) {
     if (weatherData.hour >= 6 && weatherData.hour <= 20) {
       return "partlycloudy";
-    }else{
+    } else {
       return "night_cloudy";
     }
   } else return "cloudy";
 };
 
-
-/* search for alexandria egypt as start */
 (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.loading)();
-searchThenFetch('paris');
+(0,_script_fetchCoordinates__WEBPACK_IMPORTED_MODULE_5__.fetchCoordinates)().then(_script_reverseGeocoding__WEBPACK_IMPORTED_MODULE_6__.reverseGeodecoding).then(fetchThenLoad);
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.c395abb8fe1f988725bd.js.map
+//# sourceMappingURL=bundle.2dedbcc41a857a1a0297.js.map
