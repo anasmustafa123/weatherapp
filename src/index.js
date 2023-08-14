@@ -10,20 +10,20 @@ import {
   changeBackground,
   changeStyleColor,
 } from "./script/dom";
-
-
+import { fetchCoordinates } from "./script/fetchCoordinates";
+import { reverseGeodecoding } from "./script/reverseGeocoding";
 
 /* search a query */
 const search = document.getElementById("search");
 search.addEventListener("change", () => {
-  if(search.value.replaceAll(" ","") != ""){
+  if (search.value.replaceAll(" ", "") != "") {
     let query = search.value;
     searchThenFetch(query);
     loading();
   }
 });
 document.querySelector("i.search").addEventListener("click", () => {
-  if(search.value.replaceAll(" ","") != ""){  
+  if (search.value.replaceAll(" ", "") != "") {
     let query = search.value;
     searchThenFetch(query);
     loading();
@@ -62,9 +62,10 @@ function fetchThenLoad(fixedQuery) {
           }
         });
       });
-    }).catch(function (err){
-      console.log(err);
     })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 const changeWeatherMeasure = (key, changeDom) => {
   if (key == "f") changeToF(changeDom);
@@ -81,13 +82,11 @@ const getWeatherStatusNumber = (weatherData) => {
   } else if (weatherData.cloud <= 75) {
     if (weatherData.hour >= 6 && weatherData.hour <= 20) {
       return "partlycloudy";
-    }else{
+    } else {
       return "night_cloudy";
     }
   } else return "cloudy";
 };
 
-
-/* search for alexandria egypt as start */
 loading();
-searchThenFetch('paris');
+fetchCoordinates().then(reverseGeodecoding).then(fetchThenLoad);
