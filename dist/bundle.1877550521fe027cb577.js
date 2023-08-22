@@ -241,8 +241,7 @@ img.loading.max-weather{
     width: 100%;
     justify-content: space-around;
 }
-
-.btn.selected{
+.btn.selected, .forecast.selected{
     background-color: var(--background-color);
 }
 .btn{
@@ -250,6 +249,7 @@ img.loading.max-weather{
     border-radius: 20%;
     padding: 0.35rem;
     cursor: pointer;
+    display: inline-flex;
 }
 
 .state-container{
@@ -279,12 +279,11 @@ img.loading.max-weather{
     display: inline-flex;
 }
 
-.forecast {
-    border: 0.1px solid black;
-    display: inline-flex;
-    padding: 0.25rem;
-    border-radius: 0.5rem;
-    background: #ffffff3d;
+.forecast-container {
+    display: flex;
+    height: fit-content;
+    gap: 1rem;
+    position: relative;
 }
 .forecast-data-container {
     display: grid;
@@ -424,19 +423,19 @@ footer svg:hover {
     }
 } 
 @media (max-width: 430px){
-    html{
+/*     html{
         font-size: 60%;
-    }
+    } */
     .input-container {
         height: 25px;
         width: 17rem;
     }
 } 
-@media (max-width: 370px){
+/* @media (max-width: 370px){
     html{
         font-size: 50%;
     }
-} `, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AACA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;IACtB,qBAAqB;IACrB,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,kCAAkC;AACtC;AACA;IACI,kBAAkB;AACtB;AACA;IACI,mBAAmB;IACnB,gDAAgD;IAChD,8CAA8C;IAC9C,4CAA4C;IAC5C,eAAe;AACnB;AACA;IACI,mBAAmB;IACnB,gDAAgD;IAChD,8CAA8C;IAC9C,4CAA4C;AAChD;AACA;IACI,mBAAmB;IACnB,sCAAsC;IACtC,6BAA6B;IAC7B,kDAAkD;AACtD;AACA;IACI,mBAAmB;IACnB,sCAAsC;IACtC,0CAA0C;IAC1C,kDAAkD;AACtD;AACA;IACI,mBAAmB;IACnB,0CAA0C;IAC1C,sCAAsC;IACtC,4CAA4C;AAChD;AACA;IACI,mBAAmB;IACnB,0CAA0C;IAC1C,sCAAsC;IACtC,4CAA4C;AAChD;AACA;IACI,yCAAyC;IACzC,yDAA6C;IAC7C,sBAAsB;IACtB,iBAAiB;IACjB,kBAAkB;IAClB,wBAAwB;IACxB,kBAAkB;AACtB;AACA;IACI,aAAa;AACjB;;;AAGA,UAAU;AACV;IACI,kBAAkB;IAClB,YAAY;IACZ,YAAY;IACZ,uBAAuB;IACvB,mBAAmB;IACnB,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,iCAAiC;IACjC,kBAAkB;IAClB,SAAS;IACT,SAAS;IACT,0BAA0B;AAC9B;AACA;IACI,kBAAkB;IAClB,YAAY;IACZ,iBAAiB;IACjB,YAAY;AAChB;AACA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,UAAU;IACV,oBAAoB;IACpB,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,kBAAkB;AACtB;;AAEA,WAAW;AACX;IACI,gBAAgB;AACpB;AACA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;IACnB,cAAc;IACd,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;AACvB;AACA;IACI,aAAa;IACb,eAAe;IACf,cAAc;IACd,SAAS;IACT,6BAA6B;IAC7B,eAAe;IACf,qBAAqB;IACrB,mBAAmB;IACnB,gBAAgB;IAChB,kBAAkB;AACtB;AACA;IACI,oBAAoB;AACxB;AACA;IACI,WAAW;IACX,mBAAmB;AACvB;AACA;IACI,mBAAmB;AACvB;AACA;IACI,YAAY;AAChB;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI;AACJ;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,gBAAgB;IAChB,eAAe;IACf,qBAAqB;AACzB;AACA;IACI,eAAe;IACf,gBAAgB;IAChB,qBAAqB;IACrB,gCAAgC;IAChC,6BAA6B;IAC7B,sBAAsB;IACtB,qBAAqB;IACrB,mBAAmB;IACnB,oBAAoB;IACpB,uBAAuB;IACvB,mBAAmB;AACvB;AACA;IACI,gBAAgB;AACpB;;AAEA,WAAW;;AAEX;IACI,aAAa;IACb,WAAW;IACX,6BAA6B;AACjC;;AAEA;IACI,yCAAyC;AAC7C;AACA;IACI,2CAA2C;IAC3C,kBAAkB;IAClB,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,SAAS;IACT,6BAA6B;IAC7B,eAAe;IACf,qBAAqB;IACrB,mBAAmB;;AAEvB;AACA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;AACA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,mBAAmB;AACvB;AACA;IACI,iBAAiB;AACrB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,yBAAyB;IACzB,oBAAoB;IACpB,gBAAgB;IAChB,qBAAqB;IACrB,qBAAqB;AACzB;AACA;IACI,aAAa;IACb,oCAAoC;IACpC,qBAAqB;AACzB;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,mCAAmC;IACnC,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,UAAU;IACV,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,6BAA6B;IAC7B,WAAW;AACf;AACA;IACI,WAAW;IACX,mBAAmB;AACvB;;AAEA,WAAW;AACX;IACI,kBAAkB;IAClB,SAAS;IACT,aAAa;IACb,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,WAAW;IACX,SAAS;IACT,eAAe;IACf,wBAAwB;IACxB,uCAAuC;IACvC,gBAAgB;AACpB;AACA;IACI,aAAa;IACb,cAAc;AAClB;AACA;IACI,6BAA6B;AACjC;AACA;IACI,oCAAoC;IACpC,gCAAgC;IAChC,eAAe;AACnB;;AAEA;IACI;QACI,UAAU;IACd;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,YAAY;QACZ,YAAY;QACZ,UAAU;QACV,WAAW;QACX,4BAA4B;IAChC;AACJ;AACA;IACI;QACI,UAAU;IACd;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,gCAAgC;QAChC,WAAW;QACX,SAAS;QACT,gBAAgB;IACpB;IACA;QACI,UAAU;IACd;IACA;QACI,YAAY;QACZ,YAAY;IAChB;IACA;QACI,kBAAkB;IACtB;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,gCAAgC;QAChC,WAAW;QACX,SAAS;QACT,gBAAgB;IACpB;IACA;QACI,SAAS;QACT,eAAe;IACnB;IACA;QACI,YAAY;QACZ,YAAY;QACZ,SAAS;QACT,WAAW;QACX,0BAA0B;IAC9B;IACA;QACI,kBAAkB;IACtB;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,YAAY;IAChB;IACA;QACI,kBAAkB;IACtB;AACJ;AACA;IACI;QACI,cAAc;IAClB;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,YAAY;QACZ,YAAY;IAChB;AACJ;AACA;IACI;QACI,cAAc;IAClB;AACJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');\n*{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    text-decoration: none;\n    border: none;\n    outline: none;\n    scroll-behavior: smooth;\n    font-family: 'Poppins', sans-serif;\n}\nbody{\n    position: relative;\n}\nhtml{\n    --text-color: white;\n    --comment-text-color: rgba(155, 154, 154, 0.715);\n    --background-color: rgba(179, 173, 173, 0.268);\n    --transparent-bg-color: rgba(0, 0, 0, 0.298);\n    font-size: 100%;\n}\nhtml.clear{\n    --text-color: white;\n    --comment-text-color: rgba(155, 154, 154, 0.715);\n    --background-color: rgba(179, 173, 173, 0.268);\n    --transparent-bg-color: rgba(0, 0, 0, 0.125);\n}\nhtml.cloudy, html.partlycloudy{\n    --text-color: black;\n    --comment-text-color: rgb(0 0 0 / 53%);\n    --background-color: #ffffff96;\n    --transparent-bg-color: rgba(255, 255, 255, 0.153);\n}\nhtml.sunny{\n    --text-color: black;\n    --comment-text-color: rgb(0 0 0 / 56%);\n    --background-color: rgb(255 255 255 / 65%);\n    --transparent-bg-color: rgba(255, 255, 255, 0.153);\n}\nhtml.rain{\n    --text-color: white;\n    --background-color: rgb(129 129 129 / 70%);\n    --comment-text-color: rgb(0 0 0 / 55%);\n    --transparent-bg-color: rgba(0, 0, 0, 0.125);\n}\nhtml.night_cloudy{\n    --text-color: white;\n    --background-color: rgb(129 129 129 / 70%);\n    --comment-text-color: rgb(0 0 0 / 55%);\n    --transparent-bg-color: rgba(0, 0, 0, 0.125);\n}\nsection{\n    background: no-repeat center center fixed;\n    background-image: url('../assets/cloudy.jpg');\n    background-size: cover;\n    min-height: 100vh;\n    padding: 5rem 4rem;\n    color: var(--text-color);\n    position: relative;\n}\nsection.main-container {\n    display: grid;\n}\n\n\n/* input */\n.input-container{\n    position: absolute;\n    height: 50px;\n    width: 20rem;\n    background-color: white;\n    border-radius: 1rem;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    transition: all 200ms ease-in-out;\n    overflow-x: hidden;\n    left: 50%;\n    top: 2rem;\n    transform: translate(-50%);\n}\n.input-container i {\n    position: absolute;\n    color: black;\n    font-size: 1.5rem;\n    left: 0.5rem;\n}\n.input-data-container{\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 3rem;\n    display: inline-flex;\n    align-items: center;\n    font-size: 2rem;\n}\ninput#search {\n    font-size: 1.15rem;\n}\n\n/* part 1 */\n.part1 {\n    max-width: 26rem;\n}\n.parts-container{\n    display: flex;\n    justify-content: space-between;\n}\n\nh1.searched-country{\n    font-size: 2.5rem;\n    margin-bottom: 1rem;\n    line-height: 1;\n    max-width: 26rem;\n}\n\np.date{\n    margin-left: 0.5rem;\n}\n.temprature-container{\n    display: flex;\n    font-size: 4rem;\n    margin: 1rem 0;\n    gap: 2rem;\n    border: 0.2px solid #00000030;\n    padding: 0.7rem;\n    background: #ffffff3d;\n    border-radius: 1rem;\n    max-width: 24rem;\n    width: fit-content;\n}\ndiv#temp {\n    display: inline-flex;\n}\nimg#temp-icon {\n    width: 6rem;\n    object-fit: contain;\n}\nimg.loading {\n    object-fit: contain;\n}\nimg.loading.country-fullname{\n    width: 120px;\n}\nimg.loading.time{\n    width: 50px;\n}\nimg.loading.date{\n    width: 50px;\n}\nimg.loading.temp{\n    width: 90px;\n}\nimg.loading.condition{\n    width: 50px;\n}\nimg.loading.feel-like{\n    width: 50px;\n}\nimg.loading.feel-like{\n    width: 50px;\n}\nimg.loading.humidity{\n    width: 30px;\n}\nimg.loading.wind-speed{\n    width: 30px;\n}\nimg.loading.rain{\n    width: 30px;\n}\nimg.loading{\n    width: 50%\n}\nimg.loading.day-name{\n    width: 30px;\n}\nimg.loading.avg-weather{\n    width: 40px;\n}\nimg.loading.min-weather{\n    width: 30px;\n}\nimg.loading.max-weather{\n    width: 30px;\n}\n.part1 .heading{\n    font-weight: 600;\n    font-size: 2rem;\n    margin-bottom: 0.5rem;\n}\n.part1 p{\n    font-size: 1rem;\n    font-weight: 600;\n    letter-spacing: 0.5px;\n    color: var(--comment-text-color);\n    border: 0.2px solid #00000030;\n    padding: 0.2rem 0.5rem;\n    background: #ffffff3d;\n    border-radius: 1rem;\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n}\n.change-display{\n    margin-top: 1rem;\n}\n\n/* part 2 */\n\n.button-container{\n    display: flex;\n    width: 100%;\n    justify-content: space-around;\n}\n\n.btn.selected{\n    background-color: var(--background-color);\n}\n.btn{\n    border: 0.1px solid var(--background-color);\n    border-radius: 20%;\n    padding: 0.35rem;\n    cursor: pointer;\n}\n\n.state-container{\n    display: flex;\n    margin: 1.5rem 0;\n    gap: 1rem;\n    border: 0.2px solid #00000030;\n    padding: 0.7rem;\n    background: #ffffff3d;\n    border-radius: 1rem;\n\n}\n.state-name{\n    font-weight: 600;\n    margin-bottom: 0.3rem;\n}\n.state-value{\n    font-weight: 600;\n    font-size: 1.3rem;\n    margin-left: 0.5rem;\n}\n.part2 i{\n    font-size: 2.5rem;\n}\n\n.state-value{\n    display: inline-flex;\n}\n\n.forecast {\n    border: 0.1px solid black;\n    display: inline-flex;\n    padding: 0.25rem;\n    border-radius: 0.5rem;\n    background: #ffffff3d;\n}\n.forecast-data-container {\n    display: grid;\n    grid-template: 1fr / 1fr 1fr 1fr 1fr;\n    justify-items: center;\n}\n.forecast-data {\n    padding: 1rem;\n    border-radius: 2rem;\n    background: var(--background-color);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    width: 50%;\n    max-height: 13rem;\n}\n.day-minmax-weather {\n    display: flex;\n    justify-content: space-around;\n    width: 100%;\n}\nimg.day-weather-icon {\n    width: 6rem;\n    object-fit: contain;\n}\n\n/* footer */\nfooter {\n    position: absolute;\n    bottom: 0;\n    padding: 1rem;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 100%;\n    gap: 1rem;\n    font-size: 120%;\n    color: var(--text-color);\n    background: var(--transparent-bg-color);\n    font-weight: 600;\n}\nfooter svg {\n    width: 2.1rem;\n    height: 2.1rem;\n}\nfooter svg path {\n    fill: var(--background-color);\n}\nfooter svg:hover {\n    transform: scale(1.5) rotate(360deg);\n    transition: transform 500ms ease;\n    cursor: pointer;\n}\n\n@media (max-width: 1300px){\n    .forecast-data{\n        width: 70%;\n    }\n}\n@media (max-width: 1100px){\n    html{\n        font-size: 90%;\n    }\n    .input-container {\n        height: 36px;\n        width: 17rem;\n        left: 100%;\n        top: 0.7rem;\n        transform: translate(-19rem);\n    }\n}\n@media (max-width: 850px){\n    .forecast-data{\n        width: 85%;\n    }\n}\n@media (max-width: 750px){\n    html{\n        font-size: 85%;\n    }\n    .forecast-data-container {\n        grid-template: 1fr 1fr / 1fr 1fr;\n        width: 100%;\n        gap: 2rem;\n        margin-top: 4rem;\n    }\n    .forecast-data{\n        width: 70%;\n    }\n    .input-container {\n        height: 34px;\n        width: 17rem;\n    }\n    section{\n        padding: 4rem 3rem;\n    }\n}\n@media (max-width: 610px){\n    html{\n        font-size: 75%;\n    }\n    .forecast-data-container {\n        grid-template: 1fr 1fr 1fr / 1fr;\n        width: 100%;\n        gap: 2rem;\n        margin-top: 4rem;\n    }\n    .temprature-container {\n        gap: 1rem;\n        padding: 0.1rem;\n    }\n    .input-container {\n        height: 30px;\n        width: 24rem;\n        left: 50%;\n        top: 0.7rem;\n        transform: translate(-50%);\n    }\n    section{\n        padding: 4rem 2rem;\n    }\n}\n@media (max-width: 520px){\n    html{\n        font-size: 70%;\n    }\n    .input-container {\n        width: 20rem;\n    }\n    section{\n        padding: 4rem 1rem;\n    }\n} \n@media (max-width: 475px){\n    html{\n        font-size: 65%;\n    }\n} \n@media (max-width: 430px){\n    html{\n        font-size: 60%;\n    }\n    .input-container {\n        height: 25px;\n        width: 17rem;\n    }\n} \n@media (max-width: 370px){\n    html{\n        font-size: 50%;\n    }\n} "],"sourceRoot":""}]);
+} */ `, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AACA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;IACtB,qBAAqB;IACrB,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,kCAAkC;AACtC;AACA;IACI,kBAAkB;AACtB;AACA;IACI,mBAAmB;IACnB,gDAAgD;IAChD,8CAA8C;IAC9C,4CAA4C;IAC5C,eAAe;AACnB;AACA;IACI,mBAAmB;IACnB,gDAAgD;IAChD,8CAA8C;IAC9C,4CAA4C;AAChD;AACA;IACI,mBAAmB;IACnB,sCAAsC;IACtC,6BAA6B;IAC7B,kDAAkD;AACtD;AACA;IACI,mBAAmB;IACnB,sCAAsC;IACtC,0CAA0C;IAC1C,kDAAkD;AACtD;AACA;IACI,mBAAmB;IACnB,0CAA0C;IAC1C,sCAAsC;IACtC,4CAA4C;AAChD;AACA;IACI,mBAAmB;IACnB,0CAA0C;IAC1C,sCAAsC;IACtC,4CAA4C;AAChD;AACA;IACI,yCAAyC;IACzC,yDAA6C;IAC7C,sBAAsB;IACtB,iBAAiB;IACjB,kBAAkB;IAClB,wBAAwB;IACxB,kBAAkB;AACtB;AACA;IACI,aAAa;AACjB;;;AAGA,UAAU;AACV;IACI,kBAAkB;IAClB,YAAY;IACZ,YAAY;IACZ,uBAAuB;IACvB,mBAAmB;IACnB,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,iCAAiC;IACjC,kBAAkB;IAClB,SAAS;IACT,SAAS;IACT,0BAA0B;AAC9B;AACA;IACI,kBAAkB;IAClB,YAAY;IACZ,iBAAiB;IACjB,YAAY;AAChB;AACA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,UAAU;IACV,oBAAoB;IACpB,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,kBAAkB;AACtB;;AAEA,WAAW;AACX;IACI,gBAAgB;AACpB;AACA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;IACnB,cAAc;IACd,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;AACvB;AACA;IACI,aAAa;IACb,eAAe;IACf,cAAc;IACd,SAAS;IACT,6BAA6B;IAC7B,eAAe;IACf,qBAAqB;IACrB,mBAAmB;IACnB,gBAAgB;IAChB,kBAAkB;AACtB;AACA;IACI,oBAAoB;AACxB;AACA;IACI,WAAW;IACX,mBAAmB;AACvB;AACA;IACI,mBAAmB;AACvB;AACA;IACI,YAAY;AAChB;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI;AACJ;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,WAAW;AACf;AACA;IACI,gBAAgB;IAChB,eAAe;IACf,qBAAqB;AACzB;AACA;IACI,eAAe;IACf,gBAAgB;IAChB,qBAAqB;IACrB,gCAAgC;IAChC,6BAA6B;IAC7B,sBAAsB;IACtB,qBAAqB;IACrB,mBAAmB;IACnB,oBAAoB;IACpB,uBAAuB;IACvB,mBAAmB;AACvB;AACA;IACI,gBAAgB;AACpB;;AAEA,WAAW;;AAEX;IACI,aAAa;IACb,WAAW;IACX,6BAA6B;AACjC;AACA;IACI,yCAAyC;AAC7C;AACA;IACI,2CAA2C;IAC3C,kBAAkB;IAClB,gBAAgB;IAChB,eAAe;IACf,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,SAAS;IACT,6BAA6B;IAC7B,eAAe;IACf,qBAAqB;IACrB,mBAAmB;;AAEvB;AACA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;AACA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,mBAAmB;AACvB;AACA;IACI,iBAAiB;AACrB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,SAAS;IACT,kBAAkB;AACtB;AACA;IACI,aAAa;IACb,oCAAoC;IACpC,qBAAqB;AACzB;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,mCAAmC;IACnC,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,UAAU;IACV,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,6BAA6B;IAC7B,WAAW;AACf;AACA;IACI,WAAW;IACX,mBAAmB;AACvB;;AAEA,WAAW;AACX;IACI,kBAAkB;IAClB,SAAS;IACT,aAAa;IACb,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,WAAW;IACX,SAAS;IACT,eAAe;IACf,wBAAwB;IACxB,uCAAuC;IACvC,gBAAgB;AACpB;AACA;IACI,aAAa;IACb,cAAc;AAClB;AACA;IACI,6BAA6B;AACjC;AACA;IACI,oCAAoC;IACpC,gCAAgC;IAChC,eAAe;AACnB;;AAEA;IACI;QACI,UAAU;IACd;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,YAAY;QACZ,YAAY;QACZ,UAAU;QACV,WAAW;QACX,4BAA4B;IAChC;AACJ;AACA;IACI;QACI,UAAU;IACd;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,gCAAgC;QAChC,WAAW;QACX,SAAS;QACT,gBAAgB;IACpB;IACA;QACI,UAAU;IACd;IACA;QACI,YAAY;QACZ,YAAY;IAChB;IACA;QACI,kBAAkB;IACtB;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,gCAAgC;QAChC,WAAW;QACX,SAAS;QACT,gBAAgB;IACpB;IACA;QACI,SAAS;QACT,eAAe;IACnB;IACA;QACI,YAAY;QACZ,YAAY;QACZ,SAAS;QACT,WAAW;QACX,0BAA0B;IAC9B;IACA;QACI,kBAAkB;IACtB;AACJ;AACA;IACI;QACI,cAAc;IAClB;IACA;QACI,YAAY;IAChB;IACA;QACI,kBAAkB;IACtB;AACJ;AACA;IACI;QACI,cAAc;IAClB;AACJ;AACA;AACA;;OAEO;IACH;QACI,YAAY;QACZ,YAAY;IAChB;AACJ;AACA;;;;GAIG","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');\n*{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    text-decoration: none;\n    border: none;\n    outline: none;\n    scroll-behavior: smooth;\n    font-family: 'Poppins', sans-serif;\n}\nbody{\n    position: relative;\n}\nhtml{\n    --text-color: white;\n    --comment-text-color: rgba(155, 154, 154, 0.715);\n    --background-color: rgba(179, 173, 173, 0.268);\n    --transparent-bg-color: rgba(0, 0, 0, 0.298);\n    font-size: 100%;\n}\nhtml.clear{\n    --text-color: white;\n    --comment-text-color: rgba(155, 154, 154, 0.715);\n    --background-color: rgba(179, 173, 173, 0.268);\n    --transparent-bg-color: rgba(0, 0, 0, 0.125);\n}\nhtml.cloudy, html.partlycloudy{\n    --text-color: black;\n    --comment-text-color: rgb(0 0 0 / 53%);\n    --background-color: #ffffff96;\n    --transparent-bg-color: rgba(255, 255, 255, 0.153);\n}\nhtml.sunny{\n    --text-color: black;\n    --comment-text-color: rgb(0 0 0 / 56%);\n    --background-color: rgb(255 255 255 / 65%);\n    --transparent-bg-color: rgba(255, 255, 255, 0.153);\n}\nhtml.rain{\n    --text-color: white;\n    --background-color: rgb(129 129 129 / 70%);\n    --comment-text-color: rgb(0 0 0 / 55%);\n    --transparent-bg-color: rgba(0, 0, 0, 0.125);\n}\nhtml.night_cloudy{\n    --text-color: white;\n    --background-color: rgb(129 129 129 / 70%);\n    --comment-text-color: rgb(0 0 0 / 55%);\n    --transparent-bg-color: rgba(0, 0, 0, 0.125);\n}\nsection{\n    background: no-repeat center center fixed;\n    background-image: url('../assets/cloudy.jpg');\n    background-size: cover;\n    min-height: 100vh;\n    padding: 5rem 4rem;\n    color: var(--text-color);\n    position: relative;\n}\nsection.main-container {\n    display: grid;\n}\n\n\n/* input */\n.input-container{\n    position: absolute;\n    height: 50px;\n    width: 20rem;\n    background-color: white;\n    border-radius: 1rem;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    transition: all 200ms ease-in-out;\n    overflow-x: hidden;\n    left: 50%;\n    top: 2rem;\n    transform: translate(-50%);\n}\n.input-container i {\n    position: absolute;\n    color: black;\n    font-size: 1.5rem;\n    left: 0.5rem;\n}\n.input-data-container{\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    left: 3rem;\n    display: inline-flex;\n    align-items: center;\n    font-size: 2rem;\n}\ninput#search {\n    font-size: 1.15rem;\n}\n\n/* part 1 */\n.part1 {\n    max-width: 26rem;\n}\n.parts-container{\n    display: flex;\n    justify-content: space-between;\n}\n\nh1.searched-country{\n    font-size: 2.5rem;\n    margin-bottom: 1rem;\n    line-height: 1;\n    max-width: 26rem;\n}\n\np.date{\n    margin-left: 0.5rem;\n}\n.temprature-container{\n    display: flex;\n    font-size: 4rem;\n    margin: 1rem 0;\n    gap: 2rem;\n    border: 0.2px solid #00000030;\n    padding: 0.7rem;\n    background: #ffffff3d;\n    border-radius: 1rem;\n    max-width: 24rem;\n    width: fit-content;\n}\ndiv#temp {\n    display: inline-flex;\n}\nimg#temp-icon {\n    width: 6rem;\n    object-fit: contain;\n}\nimg.loading {\n    object-fit: contain;\n}\nimg.loading.country-fullname{\n    width: 120px;\n}\nimg.loading.time{\n    width: 50px;\n}\nimg.loading.date{\n    width: 50px;\n}\nimg.loading.temp{\n    width: 90px;\n}\nimg.loading.condition{\n    width: 50px;\n}\nimg.loading.feel-like{\n    width: 50px;\n}\nimg.loading.feel-like{\n    width: 50px;\n}\nimg.loading.humidity{\n    width: 30px;\n}\nimg.loading.wind-speed{\n    width: 30px;\n}\nimg.loading.rain{\n    width: 30px;\n}\nimg.loading{\n    width: 50%\n}\nimg.loading.day-name{\n    width: 30px;\n}\nimg.loading.avg-weather{\n    width: 40px;\n}\nimg.loading.min-weather{\n    width: 30px;\n}\nimg.loading.max-weather{\n    width: 30px;\n}\n.part1 .heading{\n    font-weight: 600;\n    font-size: 2rem;\n    margin-bottom: 0.5rem;\n}\n.part1 p{\n    font-size: 1rem;\n    font-weight: 600;\n    letter-spacing: 0.5px;\n    color: var(--comment-text-color);\n    border: 0.2px solid #00000030;\n    padding: 0.2rem 0.5rem;\n    background: #ffffff3d;\n    border-radius: 1rem;\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n}\n.change-display{\n    margin-top: 1rem;\n}\n\n/* part 2 */\n\n.button-container{\n    display: flex;\n    width: 100%;\n    justify-content: space-around;\n}\n.btn.selected, .forecast.selected{\n    background-color: var(--background-color);\n}\n.btn{\n    border: 0.1px solid var(--background-color);\n    border-radius: 20%;\n    padding: 0.35rem;\n    cursor: pointer;\n    display: inline-flex;\n}\n\n.state-container{\n    display: flex;\n    margin: 1.5rem 0;\n    gap: 1rem;\n    border: 0.2px solid #00000030;\n    padding: 0.7rem;\n    background: #ffffff3d;\n    border-radius: 1rem;\n\n}\n.state-name{\n    font-weight: 600;\n    margin-bottom: 0.3rem;\n}\n.state-value{\n    font-weight: 600;\n    font-size: 1.3rem;\n    margin-left: 0.5rem;\n}\n.part2 i{\n    font-size: 2.5rem;\n}\n\n.state-value{\n    display: inline-flex;\n}\n\n.forecast-container {\n    display: flex;\n    height: fit-content;\n    gap: 1rem;\n    position: relative;\n}\n.forecast-data-container {\n    display: grid;\n    grid-template: 1fr / 1fr 1fr 1fr 1fr;\n    justify-items: center;\n}\n.forecast-data {\n    padding: 1rem;\n    border-radius: 2rem;\n    background: var(--background-color);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    width: 50%;\n    max-height: 13rem;\n}\n.day-minmax-weather {\n    display: flex;\n    justify-content: space-around;\n    width: 100%;\n}\nimg.day-weather-icon {\n    width: 6rem;\n    object-fit: contain;\n}\n\n/* footer */\nfooter {\n    position: absolute;\n    bottom: 0;\n    padding: 1rem;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 100%;\n    gap: 1rem;\n    font-size: 120%;\n    color: var(--text-color);\n    background: var(--transparent-bg-color);\n    font-weight: 600;\n}\nfooter svg {\n    width: 2.1rem;\n    height: 2.1rem;\n}\nfooter svg path {\n    fill: var(--background-color);\n}\nfooter svg:hover {\n    transform: scale(1.5) rotate(360deg);\n    transition: transform 500ms ease;\n    cursor: pointer;\n}\n\n@media (max-width: 1300px){\n    .forecast-data{\n        width: 70%;\n    }\n}\n@media (max-width: 1100px){\n    html{\n        font-size: 90%;\n    }\n    .input-container {\n        height: 36px;\n        width: 17rem;\n        left: 100%;\n        top: 0.7rem;\n        transform: translate(-19rem);\n    }\n}\n@media (max-width: 850px){\n    .forecast-data{\n        width: 85%;\n    }\n}\n@media (max-width: 750px){\n    html{\n        font-size: 85%;\n    }\n    .forecast-data-container {\n        grid-template: 1fr 1fr / 1fr 1fr;\n        width: 100%;\n        gap: 2rem;\n        margin-top: 4rem;\n    }\n    .forecast-data{\n        width: 70%;\n    }\n    .input-container {\n        height: 34px;\n        width: 17rem;\n    }\n    section{\n        padding: 4rem 3rem;\n    }\n}\n@media (max-width: 610px){\n    html{\n        font-size: 75%;\n    }\n    .forecast-data-container {\n        grid-template: 1fr 1fr 1fr / 1fr;\n        width: 100%;\n        gap: 2rem;\n        margin-top: 4rem;\n    }\n    .temprature-container {\n        gap: 1rem;\n        padding: 0.1rem;\n    }\n    .input-container {\n        height: 30px;\n        width: 24rem;\n        left: 50%;\n        top: 0.7rem;\n        transform: translate(-50%);\n    }\n    section{\n        padding: 4rem 2rem;\n    }\n}\n@media (max-width: 520px){\n    html{\n        font-size: 70%;\n    }\n    .input-container {\n        width: 20rem;\n    }\n    section{\n        padding: 4rem 1rem;\n    }\n} \n@media (max-width: 475px){\n    html{\n        font-size: 65%;\n    }\n} \n@media (max-width: 430px){\n/*     html{\n        font-size: 60%;\n    } */\n    .input-container {\n        height: 25px;\n        width: 17rem;\n    }\n} \n/* @media (max-width: 370px){\n    html{\n        font-size: 50%;\n    }\n} */ "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -929,8 +928,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   appendValuesToDom: () => (/* binding */ appendValuesToDom),
 /* harmony export */   changeBackground: () => (/* binding */ changeBackground),
 /* harmony export */   changeStyleColor: () => (/* binding */ changeStyleColor),
-/* harmony export */   changeToC: () => (/* binding */ changeToC),
-/* harmony export */   changeToF: () => (/* binding */ changeToF),
 /* harmony export */   loading: () => (/* binding */ loading)
 /* harmony export */ });
 /* harmony import */ var _assets_loading_img_gif__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/loading_img.gif */ "./src/assets/loading_img.gif");
@@ -949,92 +946,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const changeToF = (changeDom) => {
-  changeDom.temp = `${(
-    (Number(document.getElementById("temp").textContent.split(" ")[0]) * 9) /
-      5 +
-    32
-  ).toFixed(1)} °F`;
-  changeDom.temp_feelLike = `feels like ${(
-    (Number(
-      document
-        .getElementById("feel_like")
-        .textContent.split(" ")[2]
-        .split("°")[0]
-    ) *
-      9) /
-      5 +
-    32
-  ).toFixed(1)} °F`;
-  changeDom.windspeed = `${(
-    Number(document.getElementById("wind-speed").textContent.split(" ")[0]) /
-    1.609
-  ).toFixed(1)} mi/h`;
-  let i = 1;/* counter for forecast days */
-  document.querySelectorAll(".forecast-data").forEach((day) => {
-    let avgweather = day.querySelector(".day-avg-weather");
-    let minweather = day.querySelector(".day-min-weather");
-    let maxweather = day.querySelector(".day-max-weather");
-    avgweather.textContent = `${(
-      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
-      32
-    ).toFixed(1)} °F`;
-
-    minweather.textContent = `${(
-      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
-      32
-    ).toFixed(1)} °F`;
-
-    maxweather.textContent = `${(
-      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
-      32
-    ).toFixed(1)} °F`;
-    i += 1;
-  });
-};
-const changeToC = (changeDom) => {
-  changeDom.temp = `${(
-    ((Number(document.getElementById("temp").textContent.split(" ")[0]) - 32) *
-      5) /
-    9
-  ).toFixed(1)} °C`;
-  changeDom.temp_feelLike = `feels like ${(
-    ((Number(
-      document
-        .getElementById("feel_like")
-        .textContent.split(" ")[2]
-        .split("°")[0]
-    ) -
-      32) *
-      5) /
-    9
-  ).toFixed(1)} °C`;
-  changeDom.windspeed = `${(
-    Number(document.getElementById("wind-speed").textContent.split(" ")[0]) *
-    1.609
-  ).toFixed(1)} km/h`;
-  let i = 1;/* counter for forecast days */
-  document.querySelectorAll(".forecast-data").forEach((day) => {
-    let avgweather = day.querySelector(".day-avg-weather");
-    let minweather = day.querySelector(".day-min-weather");
-    let maxweather = day.querySelector(".day-max-weather");
-    avgweather.textContent = `${(
-      ((Number(avgweather.textContent.split(" ")[0]) - 32) * 5) /
-      9
-    ).toFixed(1)} °C`;
-
-    minweather.textContent = `${(
-      ((Number(minweather.textContent.split(" ")[0]) - 32) * 5) /
-      9
-    ).toFixed(1)} °C`;
-
-    maxweather.textContent = `${(
-      ((Number(maxweather.textContent.split(" ")[0]) - 32) * 5) /
-      9
-    ).toFixed(1)} °C`;
-    i += 1;
-  });
-};
 
 const setForeCastData = (days, today, measureType) => {
   let i = 1;
@@ -1209,17 +1120,21 @@ __webpack_require__.r(__webpack_exports__);
 const fetchCoordinates = () => {
   return new Promise((resolve, reject) => {
     if ("geolocation" in navigator) {
-      const id = navigator.geolocation.watchPosition((position) => {
-        console.log(position.coords.latitude);
-        resolve({
-          lat: parseFloat(position.coords.latitude),
-          long: parseFloat(position.coords.longitude),
-        });
-      });
+      const id = navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(
+            `${position.coords.latitude},${position.coords.longitude}`
+          );
+          resolve(`${position.coords.latitude},${position.coords.longitude}`);
+        },
+        (err) => {
+          if (err.code == err.PERMISSION_DENIED) {
+            alert("open your gps");
+          }
+        }
+      );
     }
-  }).catch(function (err){
-    console.error(err);
-  })
+  });
 };
 
 
@@ -1367,9 +1282,6 @@ class weatherToday {
   }
   get hour(){
     return this.time__.split(":")[0]; 
-  }
-  get dayName(){
-    
   }
   getForecastDate(dayNum){
     return this.resp.forecast.forecastday[dayNum].date;
@@ -1717,6 +1629,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/* setting weather measure toggling */
+let weatherDataNow;
+var changeDom = new _script_weatherdom__WEBPACK_IMPORTED_MODULE_3__.Change();
+document.querySelectorAll(".mbtn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (!btn.classList.contains("selected")) {
+      const selected = document.querySelector(".mbtn.selected");
+      btn.classList.add("selected");
+      selected.classList.toggle("selected");
+      changeWeatherMeasure(btn.id, changeDom, weatherDataNow);
+      console.log(weatherDataNow);
+    }
+  });
+});
+
 /* search a query */
 const search = document.getElementById("search");
 search.addEventListener("change", () => {
@@ -1748,32 +1675,63 @@ function fetchThenLoad(fixedQuery) {
       return resp.json();
     })
     .then(function (resp) {
-      const today = new _script_weather__WEBPACK_IMPORTED_MODULE_1__.weatherToday(resp);
+      console.log("new fetch");
+      console.log(resp);
+      let today = new _script_weather__WEBPACK_IMPORTED_MODULE_1__.weatherToday(resp);
+      console.log(today);
       const changeDom = new _script_weatherdom__WEBPACK_IMPORTED_MODULE_3__.Change();
       let state = getWeatherStatusNumber(today);
       (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeBackground)(state);
       (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeStyleColor)(state);
       /* append weather data */
-      let measureType = document.querySelector(".btn.selected").id;
+      let measureType = document.querySelector(".mbtn.selected").id;
       (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.appendValuesToDom)(changeDom, today, measureType);
-      document.querySelectorAll(".btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (!btn.classList.contains("selected")) {
-            const selected = document.querySelector(".selected");
-            btn.classList.add("selected");
-            selected.classList.toggle("selected");
-            changeWeatherMeasure(btn.id, changeDom);
-          }
-        });
-      });
+      weatherDataNow = today;
     })
     .catch(function (err) {
       console.log(err);
     });
 }
-const changeWeatherMeasure = (key, changeDom) => {
-  if (key == "f") (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeToF)(changeDom);
-  else if (key == "c") (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.changeToC)(changeDom);
+
+const togglle = (btn, btnClassName, toggleClassName) => {
+  const selected = document.querySelector(
+    `.${btnClassName}.${toggleClassName}`
+  );
+  btn.classList.add(`${toggleClassName}`);
+  selected.classList.toggle(`${toggleClassName}`);
+};
+
+const changeWeatherMeasure = (key, changeDom, weatherData) => {
+  if ((key == "c")) {
+    changeDom.temp = weatherData.temp_c;
+    changeDom.temp_feelLike = weatherData.temp_feelLike_c; 
+    changeDom.windspeed = weatherData.wspeed_kph;
+    let i = 1; /* counter for forecast days */
+    document.querySelectorAll(".forecast-data").forEach((day) => {
+      let avgweather = day.querySelector(".day-avg-weather");
+      let minweather = day.querySelector(".day-min-weather");
+      let maxweather = day.querySelector(".day-max-weather");
+      avgweather.textContent=  weatherData.getForecastMaxTemp_c(i);
+      minweather.textContent = weatherData.getForecastAvgTemp_c(i);
+      maxweather.textContent = weatherData.getForecastMinTemp_c(i);
+      i += 1;
+    });
+  } else if ((key == "f")) {
+    changeDom.temp = weatherData.temp_f;
+    changeDom.temp_feelLike = weatherData.temp_feelLike_f; 
+    changeDom.windspeed = weatherData.wspeed_mph;
+    let i = 1; /* counter for forecast days */
+    document.querySelectorAll(".forecast-data").forEach((day) => {
+      let avgweather = day.querySelector(".day-avg-weather");
+      let minweather = day.querySelector(".day-min-weather");
+      let maxweather = day.querySelector(".day-max-weather");
+      avgweather.textContent=  weatherData.getForecastMaxTemp_f(i);
+      minweather.textContent = weatherData.getForecastAvgTemp_f(i);
+      maxweather.textContent = weatherData.getForecastMinTemp_f(i);
+      i += 1;
+    });
+  }
+
 };
 const getWeatherStatusNumber = (weatherData) => {
   if (weatherData.humidity__ >= 90 && weatherData.rain > 50) return "rain";
@@ -1793,9 +1751,10 @@ const getWeatherStatusNumber = (weatherData) => {
 };
 
 (0,_script_dom__WEBPACK_IMPORTED_MODULE_4__.loading)();
-(0,_script_fetchCoordinates__WEBPACK_IMPORTED_MODULE_5__.fetchCoordinates)().then(_script_reverseGeocoding__WEBPACK_IMPORTED_MODULE_6__.reverseGeodecoding).then(fetchThenLoad);
+(0,_script_fetchCoordinates__WEBPACK_IMPORTED_MODULE_5__.fetchCoordinates)().then(fetchThenLoad);
+
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.2dedbcc41a857a1a0297.js.map
+//# sourceMappingURL=bundle.1877550521fe027cb577.js.map
