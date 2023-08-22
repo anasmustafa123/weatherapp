@@ -64,9 +64,6 @@ class weatherToday {
   get hour(){
     return this.time__.split(":")[0]; 
   }
-  get dayName(){
-    
-  }
   getForecastDate(dayNum){
     return this.resp.forecast.forecastday[dayNum].date;
   }
