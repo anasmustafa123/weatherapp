@@ -6,92 +6,6 @@ import cloudy__ from "../assets/cloudy.jpg";
 import rain__ from "../assets/rain.jpg";
 import night_cloudy__ from "../assets/night_cloudy.jpg";
 import partlycloudy__ from "../assets/partlycloudy.jpg";
-const changeToF = (changeDom) => {
-  changeDom.temp = `${(
-    (Number(document.getElementById("temp").textContent.split(" ")[0]) * 9) /
-      5 +
-    32
-  ).toFixed(1)} °F`;
-  changeDom.temp_feelLike = `feels like ${(
-    (Number(
-      document
-        .getElementById("feel_like")
-        .textContent.split(" ")[2]
-        .split("°")[0]
-    ) *
-      9) /
-      5 +
-    32
-  ).toFixed(1)} °F`;
-  changeDom.windspeed = `${(
-    Number(document.getElementById("wind-speed").textContent.split(" ")[0]) /
-    1.609
-  ).toFixed(1)} mi/h`;
-  let i = 1;/* counter for forecast days */
-  document.querySelectorAll(".forecast-data").forEach((day) => {
-    let avgweather = day.querySelector(".day-avg-weather");
-    let minweather = day.querySelector(".day-min-weather");
-    let maxweather = day.querySelector(".day-max-weather");
-    avgweather.textContent = `${(
-      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
-      32
-    ).toFixed(1)} °F`;
-
-    minweather.textContent = `${(
-      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
-      32
-    ).toFixed(1)} °F`;
-
-    maxweather.textContent = `${(
-      (Number(avgweather.textContent.split(" ")[0]) * 9) / 5 +
-      32
-    ).toFixed(1)} °F`;
-    i += 1;
-  });
-};
-const changeToC = (changeDom) => {
-  changeDom.temp = `${(
-    ((Number(document.getElementById("temp").textContent.split(" ")[0]) - 32) *
-      5) /
-    9
-  ).toFixed(1)} °C`;
-  changeDom.temp_feelLike = `feels like ${(
-    ((Number(
-      document
-        .getElementById("feel_like")
-        .textContent.split(" ")[2]
-        .split("°")[0]
-    ) -
-      32) *
-      5) /
-    9
-  ).toFixed(1)} °C`;
-  changeDom.windspeed = `${(
-    Number(document.getElementById("wind-speed").textContent.split(" ")[0]) *
-    1.609
-  ).toFixed(1)} km/h`;
-  let i = 1;/* counter for forecast days */
-  document.querySelectorAll(".forecast-data").forEach((day) => {
-    let avgweather = day.querySelector(".day-avg-weather");
-    let minweather = day.querySelector(".day-min-weather");
-    let maxweather = day.querySelector(".day-max-weather");
-    avgweather.textContent = `${(
-      ((Number(avgweather.textContent.split(" ")[0]) - 32) * 5) /
-      9
-    ).toFixed(1)} °C`;
-
-    minweather.textContent = `${(
-      ((Number(minweather.textContent.split(" ")[0]) - 32) * 5) /
-      9
-    ).toFixed(1)} °C`;
-
-    maxweather.textContent = `${(
-      ((Number(maxweather.textContent.split(" ")[0]) - 32) * 5) /
-      9
-    ).toFixed(1)} °C`;
-    i += 1;
-  });
-};
 
 const setForeCastData = (days, today, measureType) => {
   let i = 1;
@@ -251,8 +165,6 @@ const changeStyleColor = (state) => {
 export {
   loading,
   appendValuesToDom,
-  changeToF,
-  changeToC,
   changeBackground,
   changeStyleColor,
 };
