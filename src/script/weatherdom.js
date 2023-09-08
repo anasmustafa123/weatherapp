@@ -52,7 +52,7 @@ class Change {
     }
     set rain(chanse_of_rain){
         document.getElementById('rain').textContent = chanse_of_rain;
-    }
+    } 
 }
 
 export { Change };

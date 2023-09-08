@@ -5,13 +5,11 @@ import { Change } from "./script/weatherdom";
 import {
   loading,
   appendValuesToDom,
-  changeToC,
-  changeToF,
   changeBackground,
   changeStyleColor,
+  getHourForecast,
 } from "./script/dom";
 import { fetchCoordinates } from "./script/fetchCoordinates";
-import { reverseGeodecoding } from "./script/reverseGeocoding";
 
 /* setting weather measure toggling */
 let weatherDataNow;
@@ -27,7 +25,31 @@ document.querySelectorAll(".mbtn").forEach((btn) => {
     }
   });
 });
-
+document.querySelectorAll(".forecast").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (!btn.classList.contains("selected")) {
+      const selected = document.querySelector(".forecast.selected");
+      btn.classList.add("selected");
+      selected.classList.toggle("selected"); 
+    }
+  });
+});
+document.querySelector(".forecast.hourly.btn").addEventListener("click", () => {
+  let hourlyForeccastContainer = document.querySelector(
+    ".forecast-container.hourly"
+  );
+  document.querySelector(".forecast-container.daily").classList.add("hide");
+  hourlyForeccastContainer.classList.remove("hide");
+  let finalResult = "";
+  for (let i = weatherDataNow.hour; i < 24; i++) {
+    finalResult += getHourForecast(weatherDataNow.getForecastDataHour(i));
+  }
+  hourlyForeccastContainer.innerHTML = finalResult;
+});
+document.querySelector(".forecast.daily.btn").addEventListener("click", () => {
+  document.querySelector(".forecast-container.hourly").classList.add("hide");
+  document.querySelector(".forecast-container.daily").classList.remove("hide");
+});
 /* search a query */
 const search = document.getElementById("search");
 search.addEventListener("change", () => {
@@ -59,10 +81,7 @@ function fetchThenLoad(fixedQuery) {
       return resp.json();
     })
     .then(function (resp) {
-      console.log("new fetch");
-      console.log(resp);
       let today = new weatherToday(resp);
-      console.log(today);
       const changeDom = new Change();
       let state = getWeatherStatusNumber(today);
       changeBackground(state);
@@ -86,36 +105,44 @@ const togglle = (btn, btnClassName, toggleClassName) => {
 };
 
 const changeWeatherMeasure = (key, changeDom, weatherData) => {
-  if ((key == "c")) {
+  const dailyForecastDatas = document.querySelectorAll(".forecast-container.daily .forecast-data");
+  const hourlyForecastDatas = document.querySelectorAll(".forecast-container.hourly .forecast-data");
+
+  if (key == "c") {
     changeDom.temp = weatherData.temp_c;
-    changeDom.temp_feelLike = weatherData.temp_feelLike_c; 
+    changeDom.temp_feelLike = weatherData.temp_feelLike_c;
     changeDom.windspeed = weatherData.wspeed_kph;
     let i = 1; /* counter for forecast days */
-    document.querySelectorAll(".forecast-data").forEach((day) => {
+    dailyForecastDatas.forEach((day) => {
       let avgweather = day.querySelector(".day-avg-weather");
       let minweather = day.querySelector(".day-min-weather");
       let maxweather = day.querySelector(".day-max-weather");
-      avgweather.textContent=  weatherData.getForecastMaxTemp_c(i);
+      avgweather.textContent = weatherData.getForecastMaxTemp_c(i);
       minweather.textContent = weatherData.getForecastAvgTemp_c(i);
       maxweather.textContent = weatherData.getForecastMinTemp_c(i);
       i += 1;
     });
-  } else if ((key == "f")) {
+    hourlyForecastDatas.forEach(hour => {
+      hour.querySelector('h2.day-weather').textContent = weatherData.getForecastDataHour(parseInt(hour.id)).temp_c
+    })
+  } else if (key == "f") {
     changeDom.temp = weatherData.temp_f;
-    changeDom.temp_feelLike = weatherData.temp_feelLike_f; 
+    changeDom.temp_feelLike = weatherData.temp_feelLike_f;
     changeDom.windspeed = weatherData.wspeed_mph;
     let i = 1; /* counter for forecast days */
-    document.querySelectorAll(".forecast-data").forEach((day) => {
+    dailyForecastDatas.forEach((day) => {
       let avgweather = day.querySelector(".day-avg-weather");
       let minweather = day.querySelector(".day-min-weather");
       let maxweather = day.querySelector(".day-max-weather");
-      avgweather.textContent=  weatherData.getForecastMaxTemp_f(i);
+      avgweather.textContent = weatherData.getForecastMaxTemp_f(i);
       minweather.textContent = weatherData.getForecastAvgTemp_f(i);
       maxweather.textContent = weatherData.getForecastMinTemp_f(i);
       i += 1;
     });
+    hourlyForecastDatas.forEach(hour => {
+      hour.querySelector('h2.day-weather').textContent = weatherData.getForecastDataHour(parseInt(hour.id)).temp_f
+    })
   }
-
 };
 const getWeatherStatusNumber = (weatherData) => {
   if (weatherData.humidity__ >= 90 && weatherData.rain > 50) return "rain";

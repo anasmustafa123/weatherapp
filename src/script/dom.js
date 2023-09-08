@@ -51,7 +51,7 @@ const appendValuesToDom = (changeDom, today, measureType) => {
   changeDom.humidity = today.humidity;
   changeDom.rain = today.rain;
   document.getElementById("temp-icon").src = today.iconUrl;
-  let days = document.querySelectorAll(".forecast-data");
+  let days = document.querySelectorAll(".forecast-container.daily .forecast-data");
   setForeCastData(days, today, measureType);
 };
 
@@ -161,10 +161,22 @@ const changeStyleColor = (state) => {
       html.className = "night_cloudy";
   }
 };
-
+const getHourForecast = (hourData) => {
+  let temp
+  if(document.querySelector('.mbtn.selected').id === 'c')
+    temp = hourData.temp_c
+  else temp = hourData.temp_f
+  return `
+    <div class="forecast-data" id = ${parseInt(hourData.name)}>
+      <h3 class="day-name">${hourData.name}</h3>
+      <img src="${hourData.weatherIcon}" alt="" class="day-weather-icon" />
+      <h2 class="day-weather">${temp}</h2>
+    </div>`
+}
 export {
   loading,
   appendValuesToDom,
   changeBackground,
   changeStyleColor,
+  getHourForecast
 };

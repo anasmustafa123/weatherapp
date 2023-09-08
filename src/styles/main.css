@@ -251,16 +251,24 @@ img.loading.max-weather{
     display: inline-flex;
 }
 
-.forecast-container {
+.forecast-btn-container {
     display: flex;
     height: fit-content;
     gap: 1rem;
     position: relative;
+    margin-bottom: 2rem;
 }
-.forecast-data-container {
+.forecast-container {
     display: grid;
     grid-template: 1fr / 1fr 1fr 1fr 1fr;
     justify-items: center;
+    gap: 2rem;
+}
+.forecast-container.daily.hide{
+    display: none;
+}
+.forecast-container.hourly.hide{
+    display: none;
 }
 .forecast-data {
     padding: 1rem;
@@ -336,7 +344,7 @@ footer svg:hover {
     html{
         font-size: 85%;
     }
-    .forecast-data-container {
+    .forecast-container {
         grid-template: 1fr 1fr / 1fr 1fr;
         width: 100%;
         gap: 2rem;
@@ -357,7 +365,7 @@ footer svg:hover {
     html{
         font-size: 75%;
     }
-    .forecast-data-container {
+    .forecast-container {
         grid-template: 1fr 1fr 1fr / 1fr;
         width: 100%;
         gap: 2rem;
